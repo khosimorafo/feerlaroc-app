@@ -3,11 +3,12 @@ package co.moonmonkeylabs.quantum.view;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import com.feerlaroc.moonmonkeylabs.common.widget.CustomLinearLayout;
+
 import javax.inject.Inject;
 
 import butterknife.OnClick;
 import co.moonmonkeylabs.quantum.R;
-import co.moonmonkeylabs.quantum.common.widget.CustomLinearLayout;
 import co.moonmonkeylabs.quantum.screen.MainScreen;
 
 public class MainView extends CustomLinearLayout<MainScreen.Presenter> {

@@ -10,7 +10,7 @@ import butterknife.ButterKnife;
 import mortar.Presenter;
 
 /**
- * Custom {@link RelativeLayout} that has support for {@link mortar.Mortar} and
+ * Custom {@link RelativeLayout} that has support for { mortar.Mortar} and
  * {@link ButterKnife}.
  */
 public abstract class CustomRelativeLayout<T extends Presenter> extends RelativeLayout {

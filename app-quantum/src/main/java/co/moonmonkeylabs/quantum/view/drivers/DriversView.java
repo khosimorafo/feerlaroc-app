@@ -8,15 +8,16 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
+import com.feerlaroc.moonmonkeylabs.common.widget.ControllableAppBarLayout;
+import com.feerlaroc.moonmonkeylabs.common.widget.ControllableCoordinatorLayout;
+import com.feerlaroc.moonmonkeylabs.common.widget.CustomLinearLayout;
+
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import co.moonmonkeylabs.quantum.R;
-import co.moonmonkeylabs.quantum.common.widget.ControllableAppBarLayout;
-import co.moonmonkeylabs.quantum.common.widget.ControllableCoordinatorLayout;
-import co.moonmonkeylabs.quantum.common.widget.CustomLinearLayout;
 import co.moonmonkeylabs.quantum.listeners.OnDBTaskComplete;
 import co.moonmonkeylabs.quantum.screen.drivers.DriversScreen;
 

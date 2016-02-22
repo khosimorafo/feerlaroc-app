@@ -18,6 +18,7 @@ package co.moonmonkeylabs.quantum.common.flowmortar;
 import android.content.Context;
 import android.util.AttributeSet;
 
+import co.moonmonkeylabs.quantum.R;
 import co.moonmonkeylabs.quantum.common.flow.FramePathContainerView;
 import co.moonmonkeylabs.quantum.common.flow.SimplePathContainer;
 import flow.path.Path;

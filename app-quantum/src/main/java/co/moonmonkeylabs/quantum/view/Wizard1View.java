@@ -4,13 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import com.feerlaroc.moonmonkeylabs.common.widget.CustomLinearLayout;
+
 import javax.inject.Inject;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
 import co.moonmonkeylabs.quantum.R;
 import co.moonmonkeylabs.quantum.common.flow.HandlesBack;
-import co.moonmonkeylabs.quantum.common.widget.CustomLinearLayout;
 import co.moonmonkeylabs.quantum.screen.Wizard1Screen;
 
 public class Wizard1View extends CustomLinearLayout<Wizard1Screen.Presenter> implements HandlesBack {

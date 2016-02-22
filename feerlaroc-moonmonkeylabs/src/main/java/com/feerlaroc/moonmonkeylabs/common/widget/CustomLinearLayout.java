@@ -10,7 +10,7 @@ import butterknife.ButterKnife;
 import mortar.Presenter;
 
 /**
- * Custom {@link LinearLayout} that has support for {@link mortar.Mortar} and
+ * Custom {@link LinearLayout} that has support for {mortar.Mortar} and
  * {@link ButterKnife}.
  */
 public abstract class CustomLinearLayout<T extends Presenter> extends LinearLayout {

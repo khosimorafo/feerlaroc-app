@@ -5,18 +5,19 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import com.feerlaroc.moonmonkeylabs.common.widget.CustomFrameLayout;
+
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import co.moonmonkeylabs.quantum.R;
-import co.moonmonkeylabs.quantum.common.widget.CustomFrameLayout;
 import co.moonmonkeylabs.quantum.screen.drivers.DriversHeaderScreen;
 
 /**
  * Created by root on 2016/02/03.
  */
-public class DriverHeaderView extends CustomFrameLayout<DriversHeaderScreen.Presenter>{
+public class DriverHeaderView extends CustomFrameLayout<DriversHeaderScreen.Presenter> {
 
     @Inject
     protected DriversHeaderScreen.Presenter presenter;

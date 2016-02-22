@@ -4,12 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import com.feerlaroc.moonmonkeylabs.common.widget.CustomFrameLayout;
+
 import javax.inject.Inject;
 
 import butterknife.InjectView;
 import co.moonmonkeylabs.quantum.R;
-import co.moonmonkeylabs.quantum.common.widget.CustomFrameLayout;
 import co.moonmonkeylabs.quantum.screen.RotationScreen;
+
 
 public class RotationView extends CustomFrameLayout<RotationScreen.Presenter> {
 

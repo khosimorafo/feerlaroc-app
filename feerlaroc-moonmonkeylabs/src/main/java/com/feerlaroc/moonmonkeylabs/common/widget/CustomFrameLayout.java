@@ -9,8 +9,9 @@ import com.feerlaroc.moonmonkeylabs.common.dagger.ObjectGraphService;
 import butterknife.ButterKnife;
 import mortar.Presenter;
 
+
 /**
- * Custom {@link FrameLayout} that has support for {@link mortar.Mortar} and
+ * Custom {@link FrameLayout} that has support for { mortar.Mortar} and
  * {@link ButterKnife}.
  */
 public abstract class CustomFrameLayout<T extends Presenter> extends FrameLayout {

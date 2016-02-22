@@ -5,12 +5,13 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import com.feerlaroc.moonmonkeylabs.common.widget.CustomFrameLayout;
+
 import javax.inject.Inject;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
 import co.moonmonkeylabs.quantum.R;
-import co.moonmonkeylabs.quantum.common.widget.CustomFrameLayout;
 import co.moonmonkeylabs.quantum.screen.PhotoDisplayScreen;
 
 public class PhotoDisplayView extends CustomFrameLayout<PhotoDisplayScreen.Presenter> {
