@@ -1,0 +1,29 @@
+<resources>
+  <string name="app_name">Flow + Mortar</string>
+
+  <string name="hello_world">Hello world!</string>
+  <string name="action_settings">Settings</string>
+
+  <string name="save_driver_record">Save</string>
+  <string name="success_message">Success</string>
+  <string name="saving_record_message">Saving Record</string>
+  <string name="hint_number_plate">Number Plate</string>
+  <string name="hint_rank_number">Rank Number</string>
+  <string name="hint_license_expiry_date">License Expiry Date</string>
+  <string name="hint_registration_number">Number Plate</string>
+  <string name="hint_driver_name">Driver Name</string>
+  <string name="hint_id_number">ID Number</string>
+  <string name="hint_pdp_expiry_date">PDP Expiry Date</string>
+
+    <string name="long_text">Android 5.0 Lollipop was one of the most significant Android releases ever,
+        in no small part due to the introduction of material design,
+        a new design language that refreshed the entire Android experience
+    </string>
+
+  <string name="action_edit">Edit</string>
+  <string name="action_save">Save</string>
+  <string name="add_new_driver">New Driver</string>
+  <string name="choose_file">Choose File</string>
+    <string name="add_driver_image">Add Driver Image</string>
+  <string name="action_delete">Remove</string>
+</resources>

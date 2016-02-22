@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-invoices/app-invoices.iml" filepath="$PROJECT_DIR$/app-invoices/app-invoices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-quantum/app-quantum.iml" filepath="$PROJECT_DIR$/app-quantum/app-quantum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feerlaroc-app.iml" filepath="$PROJECT_DIR$/feerlaroc-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feerlaroc-core/feerlaroc-core.iml" filepath="$PROJECT_DIR$/feerlaroc-core/feerlaroc-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feerlaroc-firebase/feerlaroc-firebase.iml" filepath="$PROJECT_DIR$/feerlaroc-firebase/feerlaroc-firebase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feerlaroc-moonmonkeylabs/feerlaroc-moonmonkeylabs.iml" filepath="$PROJECT_DIR$/feerlaroc-moonmonkeylabs/feerlaroc-moonmonkeylabs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feerlaroc-zoho/feerlaroc-zoho.iml" filepath="$PROJECT_DIR$/feerlaroc-zoho/feerlaroc-zoho.iml" />
+    </modules>
+  </component>
+</project>

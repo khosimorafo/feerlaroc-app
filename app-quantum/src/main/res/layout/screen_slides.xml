@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.feerlaroc.mytaxi.ui.view.SlidesView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"/>
+
+        <include
+            layout="@layout/screen_navigation"
+            android:layout_below="@id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+</com.feerlaroc.mytaxi.ui.view.SlidesView>

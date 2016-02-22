@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<co.moonmonkeylabs.flowmortarexampleapp.view.drivers.DriverHeaderView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/driver_header_layout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_driver_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_headline"
+        android:text="@string/hint_driver_name"
+        android:layout_gravity="bottom|left"
+        android:padding="@dimen/activity_vertical_margin"
+        />
+
+
+</co.moonmonkeylabs.flowmortarexampleapp.view.drivers.DriverHeaderView>

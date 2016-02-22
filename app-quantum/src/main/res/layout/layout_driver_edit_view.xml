@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<co.moonmonkeylabs.flowmortarexampleapp.view.drivers.DriverEditView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/layout_driver_edit"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/button_add_driver_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="@string/add_driver_image"
+            android:src="@drawable/mortar_icon"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/colorPrimaryDark"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_driver_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_driver_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="Zozo Mthembu"
+                android:hint="@string/hint_driver_name" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_id_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_id_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="C1"
+                android:hint="@string/hint_id_number" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_pdp_expiry_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_pdp_expiry_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="Yesterday"
+                android:hint="@string/hint_pdp_expiry_date" />
+        </android.support.design.widget.TextInputLayout>
+
+
+
+    </LinearLayout>
+
+</co.moonmonkeylabs.flowmortarexampleapp.view.drivers.DriverEditView>
