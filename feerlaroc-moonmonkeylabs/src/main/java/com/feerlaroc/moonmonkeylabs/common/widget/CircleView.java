@@ -2,6 +2,7 @@ package com.feerlaroc.moonmonkeylabs.common.widget;
 /**
  * Created by root on 2016/01/30.
  */
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -13,7 +14,7 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 
-import co.moonmonkeylabs.flowmortarexampleapp.R;
+import com.feerlaroc.moonmonkeylabs.R;
 
 
 public class CircleView extends View {

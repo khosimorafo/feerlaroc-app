@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<co.moonmonkeylabs.flowmortarexampleapp.view.drivers.DriverGridView
+<co.moonmonkeylabs.quantum.view.drivers.DriverGridView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:background="@android:color/transparent"
@@ -62,4 +62,4 @@
 
     </LinearLayout>
 
-</co.moonmonkeylabs.flowmortarexampleapp.view.drivers.DriverGridView>
+</co.moonmonkeylabs.quantum.view.drivers.DriverGridView>

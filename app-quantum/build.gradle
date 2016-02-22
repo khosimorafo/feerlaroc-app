@@ -32,7 +32,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project (':feerlaroc-core')
     compile project (':feerlaroc-firebase')
-    compile project (':feerlaroc-zoho')
 
 
     compile 'com.android.support:design:23.1.1'

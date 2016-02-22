@@ -1,7 +1,25 @@
 package com.feerlaroc.invoices;
 
+import android.app.Activity;
+
+import dagger.Module;
+import dagger.Provides;
+
 /**
- * Created by root on 2016/02/22.
+ * Defines app-wide singletons
  */
+@Module(addsTo = ApplicationModule.class, library = true)
 public class ActivityModule {
+
+    private final Activity activity;
+
+    public ActivityModule(Activity activity) {
+        this.activity = activity;
+    }
+
+    @Provides
+    public Activity providesActivity() {
+        return activity;
+    }
+
 }

@@ -4,8 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
+import com.feerlaroc.moonmonkeylabs.common.dagger.ObjectGraphService;
+
 import butterknife.ButterKnife;
-import co.moonmonkeylabs.flowmortarexampleapp.common.dagger.ObjectGraphService;
 import mortar.Presenter;
 
 /**

@@ -15,7 +15,6 @@
  */
 package com.feerlaroc.invoices;
 
-import co.moonmonkeylabs.quantum.model.WizardState;
 import dagger.Module;
 import dagger.Provides;
 
@@ -23,16 +22,28 @@ import dagger.Provides;
  * Defines app-wide singletons
  */
 @Module(addsTo = ActivityModule.class, library = true)
+
 public class WizardModule {
 
-  private final WizardState wizardState;
+    private final WizardState wizardState;
 
-  public WizardModule() {
-    wizardState = new WizardState();
-  }
+    public WizardModule() {
+        wizardState = new WizardState();
+    }
 
-  @Provides
-  public WizardState providesWizardModule() {
-    return wizardState;
-  }
+    @Provides
+    public WizardState providesWizardModule() {
+        return wizardState;
+    }
+
+
+    public class WizardState {
+
+        public int count;
+
+        public WizardState() {
+            count = 0;
+        }
+    }
+
 }

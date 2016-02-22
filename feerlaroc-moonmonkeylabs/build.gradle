@@ -42,4 +42,5 @@ dependencies {
 
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'com.google.code.gson:gson:2.4'
+    compile 'com.google.code.findbugs:jsr305:2.0.3'
 }

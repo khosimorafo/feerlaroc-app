@@ -18,7 +18,6 @@ package com.feerlaroc.invoices.common.mortar;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.feerlaroc.moonmonkeylabs.common.flow.FramePathContainerView;
 import com.feerlaroc.moonmonkeylabs.common.flow.SimplePathContainer;
 
 import flow.path.Path;

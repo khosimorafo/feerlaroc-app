@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<co.moonmonkeylabs.flowmortarexampleapp.view.drivers.DriverHeaderView
+<co.moonmonkeylabs.quantum.view.drivers.DriverHeaderView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/driver_header_layout"
     android:orientation="vertical"
@@ -17,4 +17,4 @@
         />
 
 
-</co.moonmonkeylabs.flowmortarexampleapp.view.drivers.DriverHeaderView>
+</co.moonmonkeylabs.quantum.view.drivers.DriverHeaderView>
