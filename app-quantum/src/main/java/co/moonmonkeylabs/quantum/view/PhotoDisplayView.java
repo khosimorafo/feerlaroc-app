@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import co.moonmonkeylabs.quantum.R;
+import co.moonmonkeylabs.quantum.common.widget.CustomFrameLayout;
 import co.moonmonkeylabs.quantum.screen.PhotoDisplayScreen;
 
 public class PhotoDisplayView extends CustomFrameLayout<PhotoDisplayScreen.Presenter> {

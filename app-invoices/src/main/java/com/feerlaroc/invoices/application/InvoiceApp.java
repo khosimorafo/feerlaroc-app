@@ -6,8 +6,12 @@ import com.feerlaroc.core.entity.EntityInterface;
 import com.feerlaroc.core.error.FrameworkException;
 import com.feerlaroc.core.listeners.FrameworkCompletionListener;
 import com.feerlaroc.zohos.command.AddZohoEntityCommand;
+import com.feerlaroc.zohos.command.ZohoDataListCommand;
 
 import java.io.IOException;
+import java.util.List;
+
+import rx.Observable;
 
 /**
  * Created by root on 2016/02/23.
@@ -43,6 +47,11 @@ public class InvoiceApp implements App {
     @Override
     public <T extends Command> T command(Class<T> commandType) {
         return null;
+    }
+
+    @Override
+    public Observable<List<EntityInterface>> get(Class clazz){
+        return command(ZohoDataListCommand.class).getDataListObservable(clazz);
     }
 
     @Override

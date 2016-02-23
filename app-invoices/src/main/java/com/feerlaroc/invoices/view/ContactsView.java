@@ -37,4 +37,8 @@ public class ContactsView extends CustomLinearLayout<ContactsScreen.Presenter> {
         return presenter;
     }
 
+
+    public RecyclerView getContactsRecyclerView() {
+        return mRecyclerView;
+    }
 }

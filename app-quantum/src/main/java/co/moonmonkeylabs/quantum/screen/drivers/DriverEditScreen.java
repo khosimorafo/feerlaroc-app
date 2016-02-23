@@ -154,5 +154,10 @@ public class DriverEditScreen extends Path{
         public void onSuccess() {
             driversView.onSuccess();
         }
+
+        @Override
+        public void onError() {
+
+        }
     }
 }

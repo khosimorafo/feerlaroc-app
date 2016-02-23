@@ -43,7 +43,7 @@ public abstract class Command {
 
     public abstract <T> void execute(T entity);
 
-    public abstract  <T> void execute(T entity, FrameworkCompletionListener listener);
+    public abstract <T> void execute(T entity, FrameworkCompletionListener listener);
 
 
     /**

@@ -12,9 +12,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import rx.Observable;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 
 /**
@@ -45,32 +42,7 @@ public abstract class ZohoServiceCommand<T extends EntityInterface> extends Comm
 
     }
 
-    public <T> void get(Object o, T t, final FrameworkCompletionListener listener) {
 
-        EntityInterface _entity = (EntityInterface) t;
-        mZohoApiService = (ZohoApiService) getArgument(ZohoService.ZOHO_SERVICE); //ZohoApi.getInstance().get();
-
-        Observable<List<EntityInterface>> observable = mZohoApiService.get(_entity.DBKey());
-        observable.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .unsubscribeOn(Schedulers.io())
-                .subscribe(new Subscriber<List<EntityInterface>>() {
-                    @Override
-                    public void onCompleted() {
-                        listener.onSuccess();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        listener.onError();
-                    }
-
-                    @Override
-                    public void onNext(List<EntityInterface> entities) {
-
-                    }
-                });
-    }
 
     public <T> void get(T t, final FrameworkCompletionListener listener) {
 
@@ -92,7 +64,7 @@ public abstract class ZohoServiceCommand<T extends EntityInterface> extends Comm
 
     }
 
-        @Override
+    @Override
     public <T> void update(T t, final FrameworkCompletionListener listener) {
 
     }
@@ -124,6 +96,17 @@ public abstract class ZohoServiceCommand<T extends EntityInterface> extends Comm
 
     }
 
+    @Override
+    public <T> Observable getDataListObservable(T t){
+
+        EntityInterface _entity = (EntityInterface) t;
+        mZohoApiService = (ZohoApiService) getArgument(ZohoService.ZOHO_SERVICE);
+        Observable<List<EntityInterface>> observable;
+
+        observable = mZohoApiService.get(_entity.DBKey());
+
+        return observable;
+    }
 
     @Override
     public Class getServiceClass() {

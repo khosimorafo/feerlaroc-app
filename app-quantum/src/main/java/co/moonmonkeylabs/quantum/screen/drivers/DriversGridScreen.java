@@ -118,5 +118,10 @@ public class DriversGridScreen extends Path{
         public void onSuccess() {
             String x = "";
         }
+
+        @Override
+        public void onError() {
+
+        }
     }
 }
