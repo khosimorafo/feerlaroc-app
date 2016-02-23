@@ -17,9 +17,9 @@ package com.feerlaroc.invoices;
 
 import android.app.Application;
 
+import com.feerlaroc.invoices.common.actionbar.ActionBarOwner;
+import com.feerlaroc.invoices.common.flow.GsonParceler;
 import com.feerlaroc.invoices.setting.SettingsModule;
-import com.feerlaroc.moonmonkeylabs.common.actionbar.ActionBarOwner;
-import com.feerlaroc.moonmonkeylabs.common.flow.GsonParceler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

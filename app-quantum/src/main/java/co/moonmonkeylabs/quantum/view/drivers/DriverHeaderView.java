@@ -5,13 +5,12 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-import com.feerlaroc.moonmonkeylabs.common.widget.CustomFrameLayout;
-
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import co.moonmonkeylabs.quantum.R;
+import co.moonmonkeylabs.quantum.common.widget.CustomFrameLayout;
 import co.moonmonkeylabs.quantum.screen.drivers.DriversHeaderScreen;
 
 /**

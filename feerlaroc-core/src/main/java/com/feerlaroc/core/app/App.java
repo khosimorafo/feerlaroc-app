@@ -3,9 +3,8 @@ package com.feerlaroc.core.app;
 
 import com.feerlaroc.core.Command;
 import com.feerlaroc.core.entity.EntityInterface;
-import com.feerlaroc.core.listeners.NetworkCompletionListener;
-
 import com.feerlaroc.core.error.FrameworkException;
+import com.feerlaroc.core.listeners.FrameworkCompletionListener;
 
 import java.io.Closeable;
 
@@ -15,13 +14,13 @@ import java.io.Closeable;
  */
 public interface App extends Closeable{
 
-    public <T extends EntityInterface> void create(final Class<T> type, final T entity, NetworkCompletionListener listener) throws FrameworkException;
+    <T extends EntityInterface> void create(final Class<T> type, final T entity, FrameworkCompletionListener listener) throws FrameworkException;
 
-    public <T extends EntityInterface> void remove(final Class<T> type, final T entity, NetworkCompletionListener listener) throws FrameworkException;
-    public <T extends EntityInterface> void remove(final Class<T> type, final String id, NetworkCompletionListener listener) throws FrameworkException;
+    <T extends EntityInterface> void remove(final Class<T> type, final T entity, FrameworkCompletionListener listener) throws FrameworkException;
+    <T extends EntityInterface> void remove(final Class<T> type, final String id, FrameworkCompletionListener listener) throws FrameworkException;
 
-    public <T extends EntityInterface> T retrieve(final Class<T> type, final String id, NetworkCompletionListener listener) throws FrameworkException;
+    <T extends EntityInterface> T retrieve(final Class<T> type, final String id, FrameworkCompletionListener listener) throws FrameworkException;
 
-    public <T extends Command> T command(final Class<T> commandType);
+    <T extends Command> T command(final Class<T> commandType);
 
 }

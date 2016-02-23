@@ -5,7 +5,7 @@ import android.app.Application;
 import com.feerlaroc.core.Services;
 import com.feerlaroc.core.entity.EntityInterface;
 import com.feerlaroc.core.service.Service;
-import com.feerlaroc.moonmonkeylabs.common.dagger.ObjectGraphService;
+import com.feerlaroc.invoices.common.dagger.ObjectGraphService;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -74,7 +74,7 @@ public class InvoiceApplication extends Application {
                     }
 
                 }
-                if(s.startsWith("co.moonmonkeylabs.flowmortarexampleapp.model")) {
+                if(s.startsWith("com.feerlaroc.model")) {
                     if(EntityInterface.class.isAssignableFrom(Class.forName(s))){
                         entityClasses.add(Class.forName(s));
                     }

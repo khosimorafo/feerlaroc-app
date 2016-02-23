@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.feerlaroc.core.app.App;
-import com.feerlaroc.core.listeners.NetworkCompletionListener;
+import com.feerlaroc.core.listeners.FrameworkCompletionListener;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -37,7 +37,7 @@ public class DriversGridScreen extends Path{
 
     @Singleton
     public static class Presenter extends ViewPresenter<DriverGridView> implements DriverHolder.SelectedItemListener,
-            OnModelDataChangedListener, NetworkCompletionListener {
+            OnModelDataChangedListener, FrameworkCompletionListener {
 
         App app = new QuantumApp();
 
@@ -86,7 +86,7 @@ public class DriversGridScreen extends Path{
 
         @Override
         public void onModelDataChanged(Driver entity) {
-            setSelectedDriver((Driver) entity);
+            setSelectedDriver(entity);
         }
 
 
@@ -115,7 +115,7 @@ public class DriversGridScreen extends Path{
         }
 
         @Override
-        public void onComplete() {
+        public void onSuccess() {
             String x = "";
         }
     }

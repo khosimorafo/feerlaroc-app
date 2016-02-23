@@ -7,7 +7,7 @@ import com.feerlaroc.core.Services;
 import com.feerlaroc.core.app.App;
 import com.feerlaroc.core.entity.EntityInterface;
 import com.feerlaroc.core.error.FrameworkException;
-import com.feerlaroc.core.listeners.NetworkCompletionListener;
+import com.feerlaroc.core.listeners.FrameworkCompletionListener;
 import com.feerlaroc.firebase.app.FirebaseApp;
 import com.feerlaroc.firebase.command.AddFirebaseEntityCommand;
 import com.feerlaroc.firebase.command.DeleteFirebaseEntityCommand;
@@ -22,7 +22,7 @@ public class QuantumApp implements App, FirebaseApp {
 
 
     @Override
-    public <T extends EntityInterface> void create(Class<T> type, T entity, NetworkCompletionListener listener)
+    public <T extends EntityInterface> void create(Class<T> type, T entity, FrameworkCompletionListener listener)
             throws FrameworkException {
 
         AddFirebaseEntityCommand<T> command = command(AddFirebaseEntityCommand.class);
@@ -32,7 +32,7 @@ public class QuantumApp implements App, FirebaseApp {
     }
 
     @Override
-    public <T extends EntityInterface> void remove(Class<T> type, T entity, NetworkCompletionListener listener)
+    public <T extends EntityInterface> void remove(Class<T> type, T entity, FrameworkCompletionListener listener)
             throws FrameworkException {
 
         DeleteFirebaseEntityCommand<T> command = command(DeleteFirebaseEntityCommand.class);
@@ -42,7 +42,7 @@ public class QuantumApp implements App, FirebaseApp {
     }
 
     @Override
-    public <T extends EntityInterface> void remove(Class<T> type, String id, NetworkCompletionListener listener)
+    public <T extends EntityInterface> void remove(Class<T> type, String id, FrameworkCompletionListener listener)
             throws FrameworkException {
 
         try {
@@ -64,7 +64,7 @@ public class QuantumApp implements App, FirebaseApp {
     }
 
     @Override
-    public <T extends EntityInterface> T retrieve(Class<T> type, String id, NetworkCompletionListener listener)
+    public <T extends EntityInterface> T retrieve(Class<T> type, String id, FrameworkCompletionListener listener)
             throws FrameworkException {
 
         T model = null;

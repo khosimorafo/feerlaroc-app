@@ -5,8 +5,6 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.feerlaroc.moonmonkeylabs.common.widget.CustomFrameLayout;
-
 import javax.inject.Inject;
 
 import butterknife.InjectView;

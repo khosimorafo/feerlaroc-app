@@ -1,7 +1,6 @@
 package com.feerlaroc.core;
 
-import com.feerlaroc.core.listeners.FrameworkListener;
-import com.feerlaroc.core.listeners.NetworkCompletionListener;
+import com.feerlaroc.core.listeners.FrameworkCompletionListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,7 +29,7 @@ public abstract class Command {
     protected Status status                       = null;
     protected ExitCode exitCode                   = null;
 
-    private List<NetworkCompletionListener> listeners = new ArrayList<>();
+    private List<FrameworkCompletionListener> listeners = new ArrayList<>();
 
     public enum Status {
 
@@ -44,7 +43,7 @@ public abstract class Command {
 
     public abstract <T> void execute(T entity);
 
-    public abstract  <T> void execute(T entity, FrameworkListener listener);
+    public abstract  <T> void execute(T entity, FrameworkCompletionListener listener);
 
 
     /**
@@ -85,13 +84,13 @@ public abstract class Command {
     }
 
 
-    public void addNetworkCompletionListener(NetworkCompletionListener listener){
+    public void addNetworkCompletionListener(FrameworkCompletionListener listener){
         listeners.add(listener);
     }
 
     public void notifyListeners(){
-        for (NetworkCompletionListener listener : listeners){
-            listener.onComplete();
+        for (FrameworkCompletionListener listener : listeners){
+            listener.onSuccess();
         }
     }
 

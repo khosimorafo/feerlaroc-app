@@ -1,12 +1,11 @@
 package com.feerlaroc.firebase.command;
 
-import com.feerlaroc.core.listeners.FrameworkListener;
-import com.feerlaroc.firebase.core.FirebaseReference;
+import com.feerlaroc.core.Command;
 import com.feerlaroc.core.entity.EntityInterface;
+import com.feerlaroc.core.listeners.FrameworkCompletionListener;
+import com.feerlaroc.firebase.core.FirebaseReference;
 import com.feerlaroc.firebase.service.FirebaseService;
 import com.firebase.client.Firebase;
-
-import com.feerlaroc.core.Command;
 import com.firebase.client.FirebaseError;
 
 public abstract class FirebaseServiceCommand extends Command implements Firebase.CompletionListener {
@@ -44,7 +43,7 @@ public abstract class FirebaseServiceCommand extends Command implements Firebase
     }
 
     @Override
-    public <T> void execute(T entity, FrameworkListener listener) {
+    public <T> void execute(T entity, FrameworkCompletionListener listener) {
 
     }
 

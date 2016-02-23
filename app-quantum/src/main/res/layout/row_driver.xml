@@ -23,8 +23,6 @@
         android:layout_gravity="center_horizontal"
         android:textSize="@dimen/text_subheader"
         android:singleLine="false"
-        android:text="Driver Name"
-
-        />
+        android:text="Driver Name" />
 
 </LinearLayout>

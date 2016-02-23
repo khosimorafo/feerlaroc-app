@@ -1,14 +1,21 @@
 package com.feerlaroc.zohos.command;
 
-import com.feerlaroc.zohos.schema.callback.ZohoApiListener;
+import com.feerlaroc.core.listeners.FrameworkCompletionListener;
 
 /**
  * Created by root on 2016/02/17.
  */
 public interface ZohoCommandInterface {
 
-    public <T> void add(T t, ZohoApiListener listener);
-    public <T> void update(T t, ZohoApiListener listener);
-    public <T> void remove(T t, ZohoApiListener listener);
+    <T> void add(T t, final FrameworkCompletionListener listener);
+    <T> void update(T t, final FrameworkCompletionListener listener);
+
+    <T> void remove(T t, final FrameworkCompletionListener listener);
+    <T> void remove(String key, String id, final FrameworkCompletionListener listener);
+
+
+    <T> void get(T t, final FrameworkCompletionListener listener);
+    <T> void get(Object o, T t, final FrameworkCompletionListener listener);
+
 
 }

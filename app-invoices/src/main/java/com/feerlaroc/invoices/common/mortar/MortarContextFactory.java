@@ -5,7 +5,7 @@ import android.content.ContextWrapper;
 import android.view.LayoutInflater;
 
 import com.feerlaroc.invoices.InvoicesAppActivity;
-import com.feerlaroc.moonmonkeylabs.common.mortarscreen.ScreenScoper;
+import com.feerlaroc.invoices.common.mortarscreen.ScreenScoper;
 
 import flow.path.Path;
 import flow.path.PathContextFactory;

@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.feerlaroc.core.app.App;
 import com.feerlaroc.core.error.FrameworkException;
-import com.feerlaroc.core.listeners.NetworkCompletionListener;
+import com.feerlaroc.core.listeners.FrameworkCompletionListener;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -50,7 +50,7 @@ public class DriverEditScreen extends Path{
 
     @Singleton
     public static class Presenter extends LifecycleViewPresenter<DriverEditView>
-            implements OnModelDataChangedListener, NetworkCompletionListener {
+            implements OnModelDataChangedListener, FrameworkCompletionListener {
 
         private static final int SELECT_PICTURE = 1;
 
@@ -147,11 +147,11 @@ public class DriverEditScreen extends Path{
 
         @Override
         public void onModelDataChanged(Driver entity) {
-            setDriver((Driver) entity);
+            setDriver(entity);
         }
 
         @Override
-        public void onComplete() {
+        public void onSuccess() {
             driversView.onSuccess();
         }
     }

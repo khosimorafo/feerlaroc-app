@@ -5,12 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 
-import com.feerlaroc.moonmonkeylabs.common.widget.CustomFrameLayout;
-
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import co.moonmonkeylabs.quantum.R;
+import co.moonmonkeylabs.quantum.common.widget.CustomFrameLayout;
 import co.moonmonkeylabs.quantum.screen.drivers.DriversGridScreen;
 
 /**

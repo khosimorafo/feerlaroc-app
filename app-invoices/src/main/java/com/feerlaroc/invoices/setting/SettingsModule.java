@@ -19,7 +19,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.feerlaroc.moonmonkeylabs.common.settings.StringLocalSetting;
+import com.feerlaroc.invoices.common.setting.StringLocalSetting;
 
 import dagger.Module;
 import dagger.Provides;

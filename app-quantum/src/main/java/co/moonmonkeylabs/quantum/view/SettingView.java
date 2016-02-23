@@ -4,8 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
-import com.feerlaroc.moonmonkeylabs.common.widget.CustomLinearLayout;
-
 import javax.inject.Inject;
 
 import butterknife.InjectView;

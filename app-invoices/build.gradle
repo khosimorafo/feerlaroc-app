@@ -34,5 +34,8 @@ dependencies {
     compile 'com.squareup.flow:flow:0.10'
     compile 'com.squareup.flow:flow-path:0.10'
     compile 'com.squareup.picasso:picasso:2.5.2'
+
+    compile 'de.hdodenhof:circleimageview:2.0.0'
+
     compile project(':feerlaroc-moonmonkeylabs')
 }
