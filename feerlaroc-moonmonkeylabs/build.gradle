@@ -38,9 +38,10 @@ dependencies {
     compile 'com.squareup.flow:flow:0.10'
     compile 'com.squareup.flow:flow-path:0.10'
 
+
     compile 'com.jakewharton:butterknife:5.+'
 
     compile 'io.reactivex:rxjava:1.1.0'
-    compile 'com.google.code.gson:gson:2.4'
+    compile 'com.google.code.gson:gson:2.6.1'
     compile 'com.google.code.findbugs:jsr305:2.0.3'
 }

@@ -17,4 +17,9 @@ public class Invoice implements EntityInterface {
         return null;
     }
 
+    @Override
+    public <T> T getValue(Class<T> clazz) {
+        return null;
+    }
+
 }

@@ -7,7 +7,8 @@ public class Constants {
 
     public static final class HTTP {
 
-        public static final String BASE_URL = "http://services.hanselandpetal.com";
+        public static final String BASE_URL = "https://invoice.zoho.com/";
+        public static final String FRIENDS_URL = "https://dl.dropboxusercontent.com/u/57707756/";
 
     }
 

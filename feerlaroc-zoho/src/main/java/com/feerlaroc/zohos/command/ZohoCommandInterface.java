@@ -1,8 +1,7 @@
 package com.feerlaroc.zohos.command;
 
 import com.feerlaroc.core.listeners.FrameworkCompletionListener;
-
-import rx.Observable;
+import com.feerlaroc.zohos.schema.callback.ZohoApiService;
 
 /**
  * Created by root on 2016/02/17.
@@ -17,6 +16,6 @@ public interface ZohoCommandInterface {
 
     <T> void get(T t, final FrameworkCompletionListener listener);
 
-    <T> Observable getDataListObservable(T t);
+    ZohoApiService getApiService();
 
 }

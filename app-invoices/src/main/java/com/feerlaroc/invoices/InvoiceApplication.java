@@ -3,9 +3,12 @@ package com.feerlaroc.invoices;
 import android.app.Application;
 
 import com.feerlaroc.core.Services;
+import com.feerlaroc.core.app.App;
 import com.feerlaroc.core.entity.EntityInterface;
 import com.feerlaroc.core.service.Service;
+import com.feerlaroc.invoices.application.InvoiceApp;
 import com.feerlaroc.invoices.common.dagger.ObjectGraphService;
+import com.feerlaroc.zohos.schema.callback.ZohoApiService;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -21,10 +24,14 @@ import mortar.MortarScope;
  */
 public class InvoiceApplication extends Application {
 
+    static InvoiceApplication singleton;
+
     private MortarScope rootScope;
 
     Set<String> serviceClasses  = new LinkedHashSet<>();
-    Set<Class> entityClasses   = new LinkedHashSet<>();
+    Set<Class> entityClasses = new LinkedHashSet<>();
+
+    ZohoApiService mService;
 
 
     @Override public Object getSystemService(String name) {
@@ -41,6 +48,10 @@ public class InvoiceApplication extends Application {
         return super.getSystemService(name);
     }
 
+    public static InvoiceApplication getInstance(){
+        return singleton;
+    }
+
     @Override
     public void onCreate()
     {
@@ -49,11 +60,18 @@ public class InvoiceApplication extends Application {
         // Initialize the singletons so their instances
         // are bound to the application process.
         initSingletons();
+        App app = new InvoiceApp();
+        mService = app.getService();
 
+    }
+
+    public ZohoApiService getAPIService(){
+        return mService;
     }
 
     protected void initSingletons()
     {
+        singleton = this;
         setApplicationClasses();
         // Initialize the instance of Services
         Services.initialize(serviceClasses, entityClasses);
@@ -68,7 +86,7 @@ public class InvoiceApplication extends Application {
             DexFile df = new DexFile(codePath);
             for (Enumeration<String> iter = df.entries(); iter.hasMoreElements();) {
                 String s = iter.nextElement();
-                if(s.startsWith("com.feerlaroc")){
+                if(s.startsWith("com.feerlaroc.zohos")){
                     if(Service.class.isAssignableFrom(Class.forName(s))){
                         serviceClasses.add(s);
                     }

@@ -8,4 +8,6 @@ public interface EntityInterface {
     String id();
     String DBKey();
 
+    <T> T getValue(Class<T> clazz);
+
 }

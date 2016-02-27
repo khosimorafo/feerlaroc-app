@@ -2,14 +2,18 @@ package com.feerlaroc.core.service;
 
 import android.support.v4.util.LruCache;
 
+import com.feerlaroc.core.converter.AnInterfaceAdapter;
+import com.feerlaroc.core.converter.FeerlarocConverterFactory;
+import com.squareup.moshi.Moshi;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -22,7 +26,6 @@ public class NetworkService{
 
     private static String baseUrl ="https://dl.dropboxusercontent.com/u/57707756/";
     private Retrofit retrofit;
-//    private NetworkAPI networkAPI;
     private OkHttpClient okHttpClient;
     private LruCache<Class<?>, Observable<?>> apiObservables;
 
@@ -33,14 +36,19 @@ public class NetworkService{
     public NetworkService(String baseUrl){
         okHttpClient = buildClient();
         apiObservables = new LruCache<>(10);
+
+        Moshi moshi = new Moshi.Builder()
+                .add(new AnInterfaceAdapter())
+                .build();
+        FeerlarocConverterFactory factory = FeerlarocConverterFactory.create(moshi);
+        FeerlarocConverterFactory factoryLenient = factory.asLenient();
+
         retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                //.addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .client(okHttpClient)
+                .addConverterFactory(factoryLenient)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
 
-//        networkAPI = retrofit.create(NetworkAPI.class);
     }
 
     /**
@@ -126,20 +134,5 @@ public class NetworkService{
         return preparedObservable;
     }
 
-
-    /**
-     * all the Service alls to use for the retrofit requests.
-     */
-    /*public interface NetworkAPI {
-
-
-        @GET("FriendLocations.json")//real endpoint
-        Call<Object> getFriends();
-
-
-        @GET("FriendLocations.json") //real endpoint
-        Observable<Object> getFriendsObservable();
-
-    }*/
 
 }

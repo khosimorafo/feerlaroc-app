@@ -17,6 +17,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE'
+    }
 }
 
 dependencies {
@@ -37,5 +43,7 @@ dependencies {
 
     compile 'de.hdodenhof:circleimageview:2.0.0'
 
+
     compile project(':feerlaroc-moonmonkeylabs')
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.2.2'
 }

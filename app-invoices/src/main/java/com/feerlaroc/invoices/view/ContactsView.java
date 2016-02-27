@@ -10,7 +10,7 @@ import com.feerlaroc.invoices.screen.ContactsScreen;
 
 import javax.inject.Inject;
 
-import butterknife.InjectView;
+import butterknife.ButterKnife;
 
 /**
  * Created by root on 2016/02/22.
@@ -20,7 +20,7 @@ public class ContactsView extends CustomLinearLayout<ContactsScreen.Presenter> {
     @Inject
     ContactsScreen.Presenter presenter;
 
-    @InjectView(R.id.recycler_view)
+    //@Bind(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
     public ContactsView(Context context, AttributeSet attrs) {
@@ -30,6 +30,10 @@ public class ContactsView extends CustomLinearLayout<ContactsScreen.Presenter> {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+        ButterKnife.inject(this);
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+
     }
 
     @Override

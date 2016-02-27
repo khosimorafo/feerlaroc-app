@@ -1,17 +1,16 @@
 package com.feerlaroc.invoices.application;
 
 import com.feerlaroc.core.Command;
+import com.feerlaroc.core.Services;
 import com.feerlaroc.core.app.App;
 import com.feerlaroc.core.entity.EntityInterface;
 import com.feerlaroc.core.error.FrameworkException;
 import com.feerlaroc.core.listeners.FrameworkCompletionListener;
 import com.feerlaroc.zohos.command.AddZohoEntityCommand;
 import com.feerlaroc.zohos.command.ZohoDataListCommand;
+import com.feerlaroc.zohos.schema.callback.ZohoApiService;
 
 import java.io.IOException;
-import java.util.List;
-
-import rx.Observable;
 
 /**
  * Created by root on 2016/02/23.
@@ -22,7 +21,7 @@ public class InvoiceApp implements App {
     public <T extends EntityInterface> void create(Class<T> type, T entity, FrameworkCompletionListener listener)
             throws FrameworkException {
 
-        AddZohoEntityCommand<T> command = command(AddZohoEntityCommand.class);
+        AddZohoEntityCommand command = command(AddZohoEntityCommand.class);
         command.execute(entity, listener);
     }
 
@@ -46,12 +45,16 @@ public class InvoiceApp implements App {
 
     @Override
     public <T extends Command> T command(Class<T> commandType) {
-        return null;
+        return Services.getInstance().command(commandType);
     }
 
+
     @Override
-    public Observable<List<EntityInterface>> get(Class clazz){
-        return command(ZohoDataListCommand.class).getDataListObservable(clazz);
+    public ZohoApiService getService() {
+
+        ZohoDataListCommand command = command(ZohoDataListCommand.class);
+        return  command.getApiService();
+
     }
 
     @Override

@@ -21,4 +21,9 @@ public class Item implements EntityInterface {
         return DB_KEY;
     }
 
+    @Override
+    public <T> T getValue(Class<T> clazz) {
+        return null;
+    }
+
 }

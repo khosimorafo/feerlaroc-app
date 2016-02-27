@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import butterknife.InjectView;
 import co.moonmonkeylabs.quantum.R;
+import co.moonmonkeylabs.quantum.common.widget.CustomFrameLayout;
 import co.moonmonkeylabs.quantum.screen.RotationScreen;
 
 

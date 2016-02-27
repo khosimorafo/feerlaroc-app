@@ -1,8 +1,7 @@
 package com.feerlaroc.zohos.schema.callback;
 
 import com.feerlaroc.core.entity.EntityInterface;
-
-import java.util.List;
+import com.feerlaroc.zohos.response.FriendResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -10,6 +9,7 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -17,16 +17,28 @@ import rx.Observable;
  */
 public interface ZohoApiService {
 
-    @GET("/{key}")
-    Observable<List<EntityInterface>> get(@Path("key") String key);
+    @GET("/{api}/{version}/{key}")
+    Observable<Object> get(@Path("key") String key,
+                           @Path("api") String api,
+                           @Path("version") String version,
+                           @Query("authtoken") String authtoken,
+                           @Query("organization_id") String organization_id);
 
     @GET("/{key}/{id}")
-    Call<EntityInterface> get(@Path("key") String key, @Path("id") String id);
+    Call<Object> get1(@Path("key") String key, @Path("id") String id);
 
     @POST("/{key}")
-    Call<EntityInterface> create(@Path("key") String key, @Body EntityInterface entity);
+    Call<Object> create(@Path("key") String key, @Body EntityInterface entity);
 
     @DELETE("/{key}/{id}")
     Call<EntityInterface> delete(@Path("key") String key, @Path("id") String id);
+
+    @GET("FriendLocations.json")//real endpoint
+    Call<FriendResponse> getFriends();
+
+
+    @GET("FriendLocations.json") //real endpoint
+    Observable<Object> getFriendsObservable();
+
 
 }
