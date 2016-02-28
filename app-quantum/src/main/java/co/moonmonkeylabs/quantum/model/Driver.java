@@ -69,4 +69,9 @@ public class Driver extends AbstractDBEntity {
         return DB_KEY;
     }
 
+    @Override
+    public <T> T getValue(Class<T> clazz) {
+        return (T)this;
+    }
+
 }

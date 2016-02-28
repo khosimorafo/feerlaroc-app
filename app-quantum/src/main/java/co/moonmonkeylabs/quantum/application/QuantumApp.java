@@ -15,8 +15,6 @@ import com.feerlaroc.firebase.command.FirebaseServiceCommand;
 
 import java.io.IOException;
 
-import rx.Observable;
-
 /**
  * Created by root on 2016/02/13.
  */
@@ -81,9 +79,10 @@ public class QuantumApp implements App, FirebaseApp {
     }
 
     @Override
-    public <T extends Observable> T get(Class clazz) {
+    public <T> T getService() {
         return null;
     }
+
 
     @Override
     public void close() throws IOException {

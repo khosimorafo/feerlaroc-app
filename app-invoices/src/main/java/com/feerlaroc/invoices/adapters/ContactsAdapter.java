@@ -1,35 +1,35 @@
 package com.feerlaroc.invoices.adapters;
 
-import com.feerlaroc.zohos.schema.pojo.Contact;
+import com.feerlaroc.zohos.schema.helper.Constants;
+
+import java.util.Map;
 
 /**
  * Created by root on 2016/02/23.
  */
 
-public class ContactsAdapter extends ZohoRecyclerViewAdapter<Contact, ContactHolder> {
+public class ContactsAdapter extends ZohoRecyclerViewAdapter<ContactHolder> {
 
     ContactHolder.SelectedItemListener mListener;
     /**
-     * @param modelClass      Firebase will marshall the data at a location into an instance of a class that you provide
      * @param modelLayout     This is the layout used to represent a single item in the list. You will be responsible for populating an
      *                        instance of the corresponding view with the data from an instance of modelClass.
      * @param viewHolderClass The class that hold references to all sub-views in an instance modelLayout.
      * @param
      */
-    public ContactsAdapter(Class modelClass, int modelLayout, Class viewHolderClass) {
-        super(modelClass, modelLayout, viewHolderClass);
+    public ContactsAdapter(int modelLayout, Class viewHolderClass) {
+        super(Constants.ZOHO.CONTACTS, modelLayout, viewHolderClass);
     }
 
     /**
-     * @param modelClass      Firebase will marshall the data at a location into an instance of a class that you provide
      * @param modelLayout     This is the layout used to represent a single item in the list. You will be responsible for populating an
      *                        instance of the corresponding view with the data from an instance of modelClass.
      * @param viewHolderClass The class that hold references to all sub-views in an instance modelLayout.
      * @param
      */
-    public ContactsAdapter(Class modelClass, int modelLayout, Class viewHolderClass,
+    public ContactsAdapter(int modelLayout, Class viewHolderClass,
                            ContactHolder.SelectedItemListener listener) {
-        super(modelClass, modelLayout, viewHolderClass);
+        super(Constants.ZOHO.CONTACTS, modelLayout, viewHolderClass);
         mListener = listener;
     }
 
@@ -41,11 +41,10 @@ public class ContactsAdapter extends ZohoRecyclerViewAdapter<Contact, ContactHol
     }
 
     @Override
-    protected void populateViewHolder(ContactHolder viewHolder, Contact contact, int position) {
+    protected void populateViewHolder(ContactHolder viewHolder, Map<String, Object> contactMap, int position) {
 
-        viewHolder.textDriverName.setText(contact.getContactName());
-        viewHolder.textOutstandingAmount.setText(contact.getOutstandingReceivableAmount().toString());
-        //viewHolder.circleImageDriver.setImageDrawable();
+        viewHolder.textContactName.setText(contactMap.get("contact_name").toString());
+        viewHolder.textOutstandingAmount.setText(contactMap.get("outstanding_receivable_amount").toString());
 
     }
 

@@ -1,6 +1,7 @@
 package com.feerlaroc.zohos.controller;
 
 import com.feerlaroc.core.service.NetworkService;
+import com.feerlaroc.zohos.schema.callback.InvoiceService;
 import com.feerlaroc.zohos.schema.callback.ZohoApiService;
 import com.feerlaroc.zohos.schema.helper.Constants;
 
@@ -9,22 +10,21 @@ import com.feerlaroc.zohos.schema.helper.Constants;
  */
 public class ZohoApi {
 
-    ZohoApiService mZohoApiService;
-
-
     private static final ZohoApi holder = new ZohoApi();
     public static ZohoApi getInstance() {return holder;}
 
     public ZohoApi(){
 
-        mZohoApiService = new NetworkService(Constants.HTTP.BASE_URL).get().create(ZohoApiService.class);
-
     }
 
     public ZohoApiService get() {
 
-        return mZohoApiService;
+        return new NetworkService(Constants.ZOHO.BASE_URL).get().create(ZohoApiService.class);
 
+    }
+
+    public InvoiceService getInvoiceService(){
+        return  new NetworkService(Constants.ZOHO.BASE_URL).get().create(InvoiceService.class);
     }
 
 }

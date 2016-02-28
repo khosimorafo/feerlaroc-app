@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.feerlaroc.invoices.view.TransactionListView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/layout_transaction_list">
+
+    <View
+        android:id="@+id/divider_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:padding="2dp"
+        android:background="@android:color/black"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_transactions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+</com.feerlaroc.invoices.view.TransactionListView>

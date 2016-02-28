@@ -8,14 +8,19 @@ import com.feerlaroc.invoices.ActivityModule;
 import com.feerlaroc.invoices.R;
 import com.feerlaroc.invoices.adapters.ContactHolder;
 import com.feerlaroc.invoices.adapters.ContactsAdapter;
+import com.feerlaroc.invoices.application.AppDataHolder;
 import com.feerlaroc.invoices.common.flow.Layout;
 import com.feerlaroc.invoices.common.mortarscreen.WithModule;
+import com.feerlaroc.invoices.listeners.OnModelDataChangedListener;
 import com.feerlaroc.invoices.view.ContactsView;
 import com.feerlaroc.zohos.schema.pojo.Contact;
+
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import flow.Flow;
 import flow.path.Path;
 import mortar.ViewPresenter;
 
@@ -34,7 +39,12 @@ public class ContactsScreen extends Path {
 
     @Singleton
     public static class Presenter extends ViewPresenter<ContactsView>
-                implements FrameworkCompletionListener, ContactHolder.SelectedItemListener{
+                implements FrameworkCompletionListener,
+                            OnModelDataChangedListener,
+                            ContactHolder.SelectedItemListener{
+
+        ContactsAdapter mAdapter;
+        Map<String, Object> mSelectedContact;
 
         @Inject
         public Presenter() {}
@@ -50,8 +60,7 @@ public class ContactsScreen extends Path {
 
             getView().getContactsRecyclerView().setLayoutManager(layoutManager);
 
-            ContactsAdapter mAdapter = new ContactsAdapter(Contact.class, R.layout.row_contant,
-                    ContactHolder.class, this);
+            mAdapter = new ContactsAdapter(R.layout.row_contant, ContactHolder.class, this);
 
             getView().getContactsRecyclerView().setAdapter(mAdapter);
 
@@ -69,7 +78,14 @@ public class ContactsScreen extends Path {
 
         @Override
         public void onItemClick(int position) {
+            mSelectedContact = mAdapter.getItem(position);
+            AppDataHolder.getInstance().setEntity(mSelectedContact, Contact.class);
+            Flow.get(getView()).set(new CustomerDetailScreen());
+        }
 
+        @Override
+        public void onModelDataChanged(Map<String,Object> entityMap) {
+            mSelectedContact = entityMap;
         }
     }
 

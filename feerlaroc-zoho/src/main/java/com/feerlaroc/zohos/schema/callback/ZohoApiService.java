@@ -24,8 +24,14 @@ public interface ZohoApiService {
                            @Query("authtoken") String authtoken,
                            @Query("organization_id") String organization_id);
 
-    @GET("/{key}/{id}")
-    Call<Object> get1(@Path("key") String key, @Path("id") String id);
+    @GET("/{api}/{version}/{key}/{id}")
+    Call<Object> get(@Path("key") String key,
+                      @Path("api") String api,
+                      @Path("version") String version,
+                      @Path("id") String id,
+                      @Query("authtoken") String authtoken,
+                      @Query("organization_id") String organization_id);
+
 
     @POST("/{key}")
     Call<Object> create(@Path("key") String key, @Body EntityInterface entity);

@@ -39,4 +39,9 @@ public class Car extends AbstractDBEntity {
     public String DBKey() {
         return DB_KEY;
     }
+
+    @Override
+    public <T> T getValue(Class<T> clazz) {
+        return null;
+    }
 }

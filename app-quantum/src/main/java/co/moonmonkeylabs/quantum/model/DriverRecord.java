@@ -5,8 +5,6 @@ import javax.inject.Inject;
 
 import co.moonmonkeylabs.quantum.utils.DateService;
 
-;
-
 /**
  * Created by root on 2016/01/20.
  */
@@ -28,6 +26,11 @@ public class DriverRecord extends AbstractDBEntity {
     @Override
     public String DBKey() {
         return DB_KEY;
+    }
+
+    @Override
+    public <T> T getValue(Class<T> clazz) {
+        return null;
     }
 
     public DriverRecord() {}

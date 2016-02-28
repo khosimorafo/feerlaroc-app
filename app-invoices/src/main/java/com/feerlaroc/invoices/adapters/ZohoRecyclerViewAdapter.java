@@ -5,47 +5,54 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.feerlaroc.core.entity.EntityInterface;
-
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
 
 /**
  * Created by root on 2016/02/23.
  */
-public abstract class ZohoRecyclerViewAdapter <T, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
+public abstract class ZohoRecyclerViewAdapter <VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
 
-    Class<T> mModelClass;
     protected int mModelLayout;
     Class<VH> mViewHolderClass;
     ZohoEntityArray mEntities;
 
-    EntityInterface _entity;
-
     /**
-     * @param modelClass Firebase will marshall the data at a location into an instance of a class that you provide
      * @param modelLayout This is the layout used to represent a single item in the list. You will be responsible for populating an
      *                    instance of the corresponding view with the data from an instance of modelClass.
      * @param viewHolderClass The class that hold references to all sub-views in an instance modelLayout.
      * @param //ref        The Firebase location to watch for data changes. Can also be a slice of a location, using some
      *                   combination of <code>limit()</code>, <code>startAt()</code>, and <code>endAt()</code>
      */
-    public ZohoRecyclerViewAdapter(Class<T> modelClass, int modelLayout, Class<VH> viewHolderClass) {
-        mModelClass = modelClass;
+    public ZohoRecyclerViewAdapter(String key, int modelLayout, Class<VH> viewHolderClass) {
+
         mModelLayout = modelLayout;
         mViewHolderClass = viewHolderClass;
 
-        try {
-            _entity = (EntityInterface) modelClass.newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        mEntities = new ZohoEntityArray(key);
 
-        mEntities = new ZohoEntityArray(_entity.DBKey());
+        mEntities.setOnChangedListener(new ZohoEntityArray.OnChangedListener() {
+            @Override
+            public void onChanged() {
+                notifyDataSetChanged();
+            }
+        });
+    }
+
+    /**
+     * @param modelLayout This is the layout used to represent a single item in the list. You will be responsible for populating an
+     *                    instance of the corresponding view with the data from an instance of modelClass.
+     * @param viewHolderClass The class that hold references to all sub-views in an instance modelLayout.
+     * @param //ref        The Firebase location to watch for data changes. Can also be a slice of a location, using some
+     *                   combination of <code>limit()</code>, <code>startAt()</code>, and <code>endAt()</code>
+     */
+    public ZohoRecyclerViewAdapter(String key, String id, int modelLayout, Class<VH> viewHolderClass) {
+
+        mModelLayout = modelLayout;
+        mViewHolderClass = viewHolderClass;
+
+        mEntities = new ZohoEntityArray(key, id);
 
         mEntities.setOnChangedListener(new ZohoEntityArray.OnChangedListener() {
             @Override
@@ -78,7 +85,7 @@ public abstract class ZohoRecyclerViewAdapter <T, VH extends RecyclerView.ViewHo
 
     @Override
     public void onBindViewHolder(VH viewHolder, int position) {
-        T model = getItem(position);
+        Map<String, Object> model = getItem(position);
         populateViewHolder(viewHolder, model, position);
     }
 
@@ -93,31 +100,12 @@ public abstract class ZohoRecyclerViewAdapter <T, VH extends RecyclerView.ViewHo
      * @param model      The object containing the data used to populate the view
      * @param position  The position in the list of the view being populated
      */
-    abstract protected void populateViewHolder(VH viewHolder, T model, int position);
+    abstract protected void populateViewHolder(VH viewHolder, Map<String,Object> model, int position);
 
-    public T getItem(int position) {
-        return parseEntity(mEntities.getItem(position));
+    public Map<String, Object> getItem(int position) {
+        return mEntities.getItem(position);
     }
 
-    /**
-     * This method parses the DataSnapshot into the requested type. You can override it in subclasses
-     * to do custom parsing.
-     *
-     * @param entity the DataSnapshot to extract the model from
-     * @return the model extracted from the DataSnapshot
-     */
-    protected T parseEntity(String entity) {
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-
-            return mapper.readValue(entity, mModelClass);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     @Override
     public int getItemCount() {

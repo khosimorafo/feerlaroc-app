@@ -2,7 +2,9 @@ package com.feerlaroc.invoices.adapters;
 
 import com.feerlaroc.zohos.controller.ZohoApi;
 import com.feerlaroc.zohos.response.PreparedObservable;
+import com.feerlaroc.zohos.schema.callback.InvoiceService;
 import com.feerlaroc.zohos.schema.callback.ZohoApiService;
+import com.feerlaroc.zohos.schema.helper.Constants;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 
@@ -17,20 +19,50 @@ import rx.Subscription;
 
 public class ZohoEntityArray {
 
-    List<String> mSnapshots;
+    List<Map<String, Object>> mSnapshots = new ArrayList<>();
     OnChangedListener mListener;
-    Subscription subscription;
 
-    ZohoApiService mService = ZohoApi.getInstance().get();
+    Observable<Object> mObservable;
+    Subscription mSubscription;
+    ZohoApiService mService;
 
-    public ZohoEntityArray(final String key) {
-        mSnapshots = new ArrayList<>();
+    String mKey;
 
-        Observable<Object> observable = (Observable<Object>)
-                new PreparedObservable().getPreparedObservable(mService.get(key, "api", "v3", "26977862edbdfe8dc4b6d1c3f0d545a6", "163411778"),
+
+    public ZohoEntityArray(final String key, final String id){
+
+        InvoiceService mInvoiceService = ZohoApi.getInstance().getInvoiceService();
+
+        mKey = key;
+
+        mObservable = (Observable<Object>)
+                new PreparedObservable().getPreparedObservable(mInvoiceService.get(
+                        key, Constants.ZOHO.API, Constants.ZOHO.VERSION, id,
+                        Constants.ZOHO.AUTHTOKEN, Constants.ZOHO.ORGANIZATION_ID),
                         Object.class, true, true);
 
-        subscription = observable.subscribe(new Observer<Object>() {
+        setSubscription();
+
+
+    }
+
+    public ZohoEntityArray(final String key) {
+
+        mService = ZohoApi.getInstance().get();
+        mKey = key;
+
+        mObservable = (Observable<Object>)
+            new PreparedObservable().getPreparedObservable(mService.get(
+                    key, Constants.ZOHO.API, Constants.ZOHO.VERSION,
+                    Constants.ZOHO.AUTHTOKEN, Constants.ZOHO.ORGANIZATION_ID),
+                    Object.class, true, true);
+
+        setSubscription();
+
+    }
+
+    void setSubscription(){
+        mSubscription = mObservable.subscribe(new Observer<Object>() {
             @Override
             public void onCompleted() {
                 String x = "";
@@ -46,12 +78,13 @@ public class ZohoEntityArray {
 
                 Moshi moshi = new Moshi.Builder().build();
                 JsonAdapter<Object> adapter = moshi.adapter(Object.class);
-                List<Object> result = (List<Object>) ((Map<String, Object>) response).get(key);
+                List<Map<String, Object>> result
+                        = (List<Map<String, Object>>) ((Map<String, Object>) response).get(mKey);
 
-                Iterator<Object> iterator = result.iterator();
+                Iterator<Map<String, Object>> iterator = result.iterator();
                 while (iterator.hasNext()) {
-                    String str = adapter.toJson(iterator.next());
-                    mSnapshots.add(str);
+                    //String str = adapter.toJson(iterator.next());
+                    mSnapshots.add(iterator.next());
                 }
                 notifyChangedListeners();
             }
@@ -62,7 +95,7 @@ public class ZohoEntityArray {
         return mSnapshots.size();
     }
 
-    public String getItem(int index) {
+    public Map<String, Object> getItem(int index) {
         return mSnapshots.get(index);
     }
 
