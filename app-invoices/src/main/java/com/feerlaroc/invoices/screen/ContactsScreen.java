@@ -80,7 +80,7 @@ public class ContactsScreen extends Path {
         public void onItemClick(int position) {
             mSelectedContact = mAdapter.getItem(position);
             AppDataHolder.getInstance().setEntity(mSelectedContact, Contact.class);
-            Flow.get(getView()).set(new CustomerDetailScreen());
+            Flow.get(getView()).set(new TransactionListScreen());
         }
 
         @Override

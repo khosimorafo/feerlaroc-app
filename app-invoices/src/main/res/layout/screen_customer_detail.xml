@@ -12,44 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.feerlaroc.moonmonkeylabs.common.widget.ControllableAppBarLayout
-            android:id="@+id/app_bar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/driver_view_height">
+            android:layout_height="match_parent">
 
-            <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <include layout="@layout/layout_customer_detail_header"/>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorPrimaryDark"
-                    >
-
-                    <include layout="@layout/layout_customer_detail_header"/>
+        </RelativeLayout>
 
 
-                </RelativeLayout>
-
-
-
-
-            </android.support.design.widget.CollapsingToolbarLayout>
-
-        </com.feerlaroc.moonmonkeylabs.common.widget.ControllableAppBarLayout>
-
-        <android.support.v4.widget.NestedScrollView
-            android:id="@+id/nested_scroll_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <include layout="@layout/layout_transaction_list"/>
-
-        </android.support.v4.widget.NestedScrollView>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_add_record"
@@ -57,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:src="@drawable/ic_currency_usd_white_48dp"
-            app:layout_anchor="@id/app_bar"
+            app:layout_anchor="@id/coordinator_layout"
             app:layout_anchorGravity="bottom|right|end"/>
 
     </com.feerlaroc.moonmonkeylabs.common.widget.ControllableCoordinatorLayout>

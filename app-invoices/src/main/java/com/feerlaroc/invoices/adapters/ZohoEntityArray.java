@@ -5,8 +5,6 @@ import com.feerlaroc.zohos.response.PreparedObservable;
 import com.feerlaroc.zohos.schema.callback.InvoiceService;
 import com.feerlaroc.zohos.schema.callback.ZohoApiService;
 import com.feerlaroc.zohos.schema.helper.Constants;
-import com.squareup.moshi.JsonAdapter;
-import com.squareup.moshi.Moshi;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -76,14 +74,11 @@ public class ZohoEntityArray {
             @Override
             public void onNext(Object response) {
 
-                Moshi moshi = new Moshi.Builder().build();
-                JsonAdapter<Object> adapter = moshi.adapter(Object.class);
                 List<Map<String, Object>> result
                         = (List<Map<String, Object>>) ((Map<String, Object>) response).get(mKey);
 
                 Iterator<Map<String, Object>> iterator = result.iterator();
                 while (iterator.hasNext()) {
-                    //String str = adapter.toJson(iterator.next());
                     mSnapshots.add(iterator.next());
                 }
                 notifyChangedListeners();

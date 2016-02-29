@@ -38,6 +38,7 @@ public class CustomerDetailView extends CustomRelativeLayout<CustomerDetailScree
         mTransactionListView = (TransactionListView) View
                 .inflate(getContext(), R.layout.layout_transaction_list, null);
 
+
     }
 
     @Override

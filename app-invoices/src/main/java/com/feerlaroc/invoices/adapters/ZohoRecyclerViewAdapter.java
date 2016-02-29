@@ -16,7 +16,7 @@ public abstract class ZohoRecyclerViewAdapter <VH extends RecyclerView.ViewHolde
 
     protected int mModelLayout;
     Class<VH> mViewHolderClass;
-    ZohoEntityArray mEntities;
+    protected ZohoEntityArray mEntities;
 
     /**
      * @param modelLayout This is the layout used to represent a single item in the list. You will be responsible for populating an

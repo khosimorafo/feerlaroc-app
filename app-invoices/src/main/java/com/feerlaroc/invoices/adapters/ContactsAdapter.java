@@ -35,6 +35,7 @@ public class ContactsAdapter extends ZohoRecyclerViewAdapter<ContactHolder> {
 
     @Override
     public void onBindViewHolder(ContactHolder viewHolder, int position) {
+
         super.onBindViewHolder(viewHolder, position);
         viewHolder.setListener(mListener);
 

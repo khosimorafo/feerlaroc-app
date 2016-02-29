@@ -34,6 +34,8 @@ public class ContactsView extends CustomLinearLayout<ContactsScreen.Presenter> {
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
+
+
     }
 
     @Override

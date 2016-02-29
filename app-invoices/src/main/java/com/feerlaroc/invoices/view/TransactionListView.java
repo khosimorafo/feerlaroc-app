@@ -28,7 +28,7 @@ public class TransactionListView extends CustomLinearLayout<TransactionListScree
     protected void onFinishInflate() {
         super.onFinishInflate();
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_transactions);
 
     }
 
@@ -40,4 +40,5 @@ public class TransactionListView extends CustomLinearLayout<TransactionListScree
     public RecyclerView getTransactionsRecyclerView() {
         return mRecyclerView;
     }
+
 }

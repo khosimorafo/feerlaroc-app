@@ -12,11 +12,11 @@ public interface InvoiceService {
 
     @GET("/{api}/{version}/{key}")
     Observable<Object> get(@Path("key") String key,
-                                   @Path("api") String api,
-                                   @Path("version") String version,
-                                   @Query("customer id") String customer_id,
-                                   @Query("authtoken") String authtoken,
-                                   @Query("organization_id") String organization_id);
+                           @Path("api") String api,
+                           @Path("version") String version,
+                           @Query("customer_id") String customer_id,
+                           @Query("authtoken") String authtoken,
+                           @Query("organization_id") String organization_id);
 
 
 }

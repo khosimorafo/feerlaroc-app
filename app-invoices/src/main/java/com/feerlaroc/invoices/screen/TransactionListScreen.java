@@ -7,20 +7,25 @@ import com.feerlaroc.invoices.ActivityModule;
 import com.feerlaroc.invoices.R;
 import com.feerlaroc.invoices.adapters.TransactionHolder;
 import com.feerlaroc.invoices.adapters.TransactionsAdapter;
+import com.feerlaroc.invoices.application.AppDataHolder;
 import com.feerlaroc.invoices.common.flow.Layout;
 import com.feerlaroc.invoices.common.mortarscreen.WithModule;
 import com.feerlaroc.invoices.view.TransactionListView;
+import com.feerlaroc.zohos.schema.pojo.Contact;
+
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import flow.path.Path;
 import mortar.ViewPresenter;
 
 @Layout(R.layout.layout_transaction_list)
 @WithModule(TransactionListScreen.Module.class)
-public class TransactionListScreen {
+public class TransactionListScreen extends Path {
 
-    @dagger.Module(injects = {TransactionListView.class}, addsTo = ActivityModule.class)
+    @dagger.Module(injects = TransactionListView.class, addsTo = ActivityModule.class)
 
     public class Module {
     }
@@ -30,9 +35,12 @@ public class TransactionListScreen {
                                     implements TransactionHolder.SelectedItemListener{
 
         TransactionsAdapter mAdapter;
+        Map<String, Object> mContact;
+
 
         @Inject
         public Presenter(){
+            mContact = AppDataHolder.getInstance().getEntity(Contact.class);
         }
 
         @Override
@@ -46,14 +54,17 @@ public class TransactionListScreen {
 
             getView().getTransactionsRecyclerView().setLayoutManager(layoutManager);
 
-            mAdapter = new TransactionsAdapter("", "", R.layout.row_transaction, TransactionHolder.class, this);
+            mAdapter = new TransactionsAdapter(mContact.get("contact_id").toString(),
+                    R.layout.row_transaction, TransactionHolder.class, this);
 
             getView().getTransactionsRecyclerView().setAdapter(mAdapter);
+
         }
 
         @Override
         public void onItemClick(int position) {
 
         }
+
     }
 }
