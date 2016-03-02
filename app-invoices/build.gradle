@@ -29,6 +29,9 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':feerlaroc-core')
     compile project(':feerlaroc-zoho')
+    compile project(':feerlaroc-widgets')
+    compile project(':feerlaroc-moonmonkeylabs')
+
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
@@ -44,6 +47,5 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.0.0'
 
 
-    compile project(':feerlaroc-moonmonkeylabs')
     compile 'com.fasterxml.jackson.core:jackson-databind:2.2.2'
 }

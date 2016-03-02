@@ -12,9 +12,11 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app-invoices" />
             <option value="$PROJECT_DIR$/app-quantum" />
+            <option value="$PROJECT_DIR$/app-tests" />
             <option value="$PROJECT_DIR$/feerlaroc-core" />
             <option value="$PROJECT_DIR$/feerlaroc-firebase" />
             <option value="$PROJECT_DIR$/feerlaroc-moonmonkeylabs" />
+            <option value="$PROJECT_DIR$/feerlaroc-widgets" />
             <option value="$PROJECT_DIR$/feerlaroc-zoho" />
           </set>
         </option>
@@ -24,9 +26,11 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app-invoices" />
             <option value="$PROJECT_DIR$/app-quantum" />
+            <option value="$PROJECT_DIR$/app-tests" />
             <option value="$PROJECT_DIR$/feerlaroc-core" />
             <option value="$PROJECT_DIR$/feerlaroc-firebase" />
             <option value="$PROJECT_DIR$/feerlaroc-moonmonkeylabs" />
+            <option value="$PROJECT_DIR$/feerlaroc-widgets" />
             <option value="$PROJECT_DIR$/feerlaroc-zoho" />
           </set>
         </option>

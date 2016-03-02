@@ -8,6 +8,8 @@ import com.feerlaroc.invoices.R;
 import com.feerlaroc.invoices.common.widget.CustomRelativeLayout;
 import com.feerlaroc.invoices.screen.CustomerDetailScreen;
 
+import org.feerlaroc.widgets.monthbar.MonthsBar;
+
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
@@ -22,6 +24,7 @@ public class CustomerDetailView extends CustomRelativeLayout<CustomerDetailScree
 
     CustomerDetailHeaderView mCustomerDetailHeaderView;
     TransactionListView mTransactionListView;
+    private MonthsBar mMonthsBar;
 
     public CustomerDetailView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -38,7 +41,16 @@ public class CustomerDetailView extends CustomRelativeLayout<CustomerDetailScree
         mTransactionListView = (TransactionListView) View
                 .inflate(getContext(), R.layout.layout_transaction_list, null);
 
+        mMonthsBar = (MonthsBar) findViewById(R.id.months_bar);
 
+    }
+
+    public MonthsBar getMonthsBar() {
+        return mMonthsBar;
+    }
+
+    public void refreshMonthsBar(){
+        mMonthsBar.invalidate();
     }
 
     @Override

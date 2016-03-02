@@ -1,1 +1,1 @@
-include ':app', ':feerlaroc-core', ':feerlaroc-moonmonkeylabs', ':feerlaroc-zoho', ':app-invoices', ':app-quantum', ':feerlaroc-firebase'
+include ':app', ':feerlaroc-core', ':feerlaroc-moonmonkeylabs', ':feerlaroc-zoho', ':app-invoices', ':app-quantum', ':feerlaroc-firebase', ':feerlaroc-widgets', ':app-tests'
