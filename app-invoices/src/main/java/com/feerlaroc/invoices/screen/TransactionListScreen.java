@@ -40,7 +40,7 @@ public class TransactionListScreen extends Path {
 
         @Inject
         public Presenter(){
-            mContact = AppDataHolder.getInstance().getEntity(Contact.class);
+            mContact = AppDataHolder.getInstance().getEntityAsMap(Contact.class);
         }
 
         @Override

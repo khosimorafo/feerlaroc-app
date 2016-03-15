@@ -1,4 +1,4 @@
-package com.feerlaroc.zohos.schema.callback;
+package com.feerlaroc.zohos.core;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;

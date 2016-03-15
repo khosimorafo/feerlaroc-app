@@ -2,7 +2,6 @@ package com.feerlaroc.firebase.command;
 
 import com.feerlaroc.core.Command;
 import com.feerlaroc.core.entity.EntityInterface;
-import com.feerlaroc.core.listeners.FrameworkCompletionListener;
 import com.feerlaroc.firebase.core.FirebaseReference;
 import com.feerlaroc.firebase.service.FirebaseService;
 import com.firebase.client.Firebase;
@@ -43,7 +42,7 @@ public abstract class FirebaseServiceCommand extends Command implements Firebase
     }
 
     @Override
-    public <T> void execute(T entity, FrameworkCompletionListener listener) {
+    public <T, U> void execute(T entity, U listener) {
 
     }
 

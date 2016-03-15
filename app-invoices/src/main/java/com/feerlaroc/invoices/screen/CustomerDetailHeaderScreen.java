@@ -24,7 +24,6 @@ import mortar.ViewPresenter;
 public class CustomerDetailHeaderScreen extends Path {
 
     @dagger.Module(injects = {CustomerDetailHeaderView.class}, addsTo = ActivityModule.class)
-
     public class Module {
     }
 
@@ -34,7 +33,7 @@ public class CustomerDetailHeaderScreen extends Path {
         Map<String, Object> mContact = new HashMap<>();
         @Inject
         public Presenter(){
-            mContact = AppDataHolder.getInstance().getEntity(Contact.class);
+            mContact = AppDataHolder.getInstance().getEntityAsMap(Contact.class);
         }
 
         @Override

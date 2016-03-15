@@ -7,8 +7,7 @@ import com.feerlaroc.core.entity.EntityInterface;
 import com.feerlaroc.core.error.FrameworkException;
 import com.feerlaroc.core.listeners.FrameworkCompletionListener;
 import com.feerlaroc.zohos.command.AddZohoEntityCommand;
-import com.feerlaroc.zohos.command.ZohoDataListCommand;
-import com.feerlaroc.zohos.schema.callback.ZohoApiService;
+import com.feerlaroc.zohos.core.ZohoApiService;
 
 import java.io.IOException;
 
@@ -22,6 +21,7 @@ public class InvoiceApp implements App {
             throws FrameworkException {
 
         AddZohoEntityCommand command = command(AddZohoEntityCommand.class);
+        command.addNetworkCompletionListener(listener);
         command.execute(entity, listener);
     }
 
@@ -48,12 +48,10 @@ public class InvoiceApp implements App {
         return Services.getInstance().command(commandType);
     }
 
-
     @Override
     public ZohoApiService getService() {
 
-        ZohoDataListCommand command = command(ZohoDataListCommand.class);
-        return  command.getApiService();
+        return  null;
 
     }
 

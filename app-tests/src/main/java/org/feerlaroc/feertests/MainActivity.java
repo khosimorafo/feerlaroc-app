@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
 
+import org.feerlaroc.utils.datetime.Month;
 import org.feerlaroc.widgets.monthbar.MonthsBar;
-import org.feerlaroc.widgets.utils.Month;
 
 import java.util.ArrayList;
 import java.util.List;

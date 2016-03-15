@@ -1,8 +1,8 @@
 package com.feerlaroc.zohos.controller;
 
 import com.feerlaroc.core.service.NetworkService;
-import com.feerlaroc.zohos.schema.callback.InvoiceService;
-import com.feerlaroc.zohos.schema.callback.ZohoApiService;
+import com.feerlaroc.zohos.core.InvoiceService;
+import com.feerlaroc.zohos.core.ZohoApiService;
 import com.feerlaroc.zohos.schema.helper.Constants;
 
 /**

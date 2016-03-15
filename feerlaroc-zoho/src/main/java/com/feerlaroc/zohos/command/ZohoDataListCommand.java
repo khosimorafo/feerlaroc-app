@@ -1,7 +1,8 @@
 package com.feerlaroc.zohos.command;
 
+import android.content.Context;
+
 import com.feerlaroc.core.entity.EntityInterface;
-import com.feerlaroc.core.listeners.FrameworkCompletionListener;
 
 /**
  * Created by root on 2016/02/23.
@@ -9,13 +10,17 @@ import com.feerlaroc.core.listeners.FrameworkCompletionListener;
 public class ZohoDataListCommand<T extends EntityInterface> extends ZohoServiceCommand {
 
 
+    public ZohoDataListCommand(Context context) {
+        super(context);
+    }
+
     @Override
     public <T> void execute(T entity) {
 
     }
 
     @Override
-    public <T> void execute(T entity, FrameworkCompletionListener listener) {
+    public <T, U> void execute(T entity, U listener) {
 
     }
 

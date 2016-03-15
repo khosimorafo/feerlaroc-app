@@ -26,7 +26,7 @@ public class CustomerDetailHeaderView extends CustomFrameLayout<CustomerDetailHe
     CircleImageView imageContact;
 
     @Inject
-    protected CustomerDetailHeaderScreen.Presenter presenter;
+    protected CustomerDetailHeaderScreen.Presenter mPresenter;
 
     public CustomerDetailHeaderView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -37,6 +37,11 @@ public class CustomerDetailHeaderView extends CustomFrameLayout<CustomerDetailHe
         super.onFinishInflate();
     }
 
+    @Override
+    public CustomerDetailHeaderScreen.Presenter getPresenter() {
+        return mPresenter;
+    }
+
     public void setCustomerName(String name){
         textContactName.setText(name);
     }
@@ -45,8 +50,7 @@ public class CustomerDetailHeaderView extends CustomFrameLayout<CustomerDetailHe
 
     }
 
-    @Override
-    public CustomerDetailHeaderScreen.Presenter getPresenter() {
-        return presenter;
+    public CustomerDetailHeaderScreen.Presenter getmPresenter() {
+        return mPresenter;
     }
 }

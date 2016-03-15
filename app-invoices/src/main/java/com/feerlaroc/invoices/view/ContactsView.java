@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 public class ContactsView extends CustomLinearLayout<ContactsScreen.Presenter> {
 
     @Inject
-    ContactsScreen.Presenter presenter;
+    ContactsScreen.Presenter mPresenter;
 
     //@Bind(R.id.recycler_view)
     RecyclerView mRecyclerView;
@@ -38,9 +38,8 @@ public class ContactsView extends CustomLinearLayout<ContactsScreen.Presenter> {
 
     }
 
-    @Override
-    public ContactsScreen.Presenter getPresenter() {
-        return presenter;
+    public ContactsScreen.Presenter getmPresenter() {
+        return mPresenter;
     }
 
 

@@ -1,0 +1,17 @@
+{
+  "customer_id": "StringProperty",
+  "invoices": [
+    {
+      "invoice_id": "StringProperty",
+      "amount_applied": 0.00,
+      "tax_amount_withheld": 0.00
+    }
+  ],
+  "payment_mode": "StringProperty",
+  "description": "StringProperty",
+  "date": "DateProperty",
+  "reference_number": "StringProperty",
+  "exchange_rate": 1.00,
+  "amount": 0.00,
+  "bank_charges": 0.00
+}

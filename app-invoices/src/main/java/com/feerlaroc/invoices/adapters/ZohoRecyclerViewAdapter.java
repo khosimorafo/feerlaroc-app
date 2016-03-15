@@ -32,7 +32,7 @@ public abstract class ZohoRecyclerViewAdapter <VH extends RecyclerView.ViewHolde
 
         mEntities = new ZohoEntityArray(key);
 
-        mEntities.setOnChangedListener(new ZohoEntityArray.OnChangedListener() {
+        mEntities.setOnChangedListener(new ZohoEntityArray.OnDataChangedListener() {
             @Override
             public void onChanged() {
                 notifyDataSetChanged();
@@ -54,7 +54,7 @@ public abstract class ZohoRecyclerViewAdapter <VH extends RecyclerView.ViewHolde
 
         mEntities = new ZohoEntityArray(key, id);
 
-        mEntities.setOnChangedListener(new ZohoEntityArray.OnChangedListener() {
+        mEntities.setOnChangedListener(new ZohoEntityArray.OnDataChangedListener() {
             @Override
             public void onChanged() {
                 notifyDataSetChanged();

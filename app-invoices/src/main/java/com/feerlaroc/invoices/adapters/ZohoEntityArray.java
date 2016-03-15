@@ -1,9 +1,9 @@
 package com.feerlaroc.invoices.adapters;
 
 import com.feerlaroc.zohos.controller.ZohoApi;
+import com.feerlaroc.zohos.core.InvoiceService;
+import com.feerlaroc.zohos.core.ZohoApiService;
 import com.feerlaroc.zohos.response.PreparedObservable;
-import com.feerlaroc.zohos.schema.callback.InvoiceService;
-import com.feerlaroc.zohos.schema.callback.ZohoApiService;
 import com.feerlaroc.zohos.schema.helper.Constants;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import rx.Subscription;
 public class ZohoEntityArray {
 
     List<Map<String, Object>> mSnapshots = new ArrayList<>();
-    OnChangedListener mListener;
+    OnDataChangedListener mListener;
 
     Observable<Object> mObservable;
     Subscription mSubscription;
@@ -94,7 +94,11 @@ public class ZohoEntityArray {
         return mSnapshots.get(index);
     }
 
-    public void setOnChangedListener(OnChangedListener listener) {
+    public String getKey(){
+        return mKey;
+    }
+
+    public void setOnChangedListener(OnDataChangedListener listener) {
         mListener = listener;
     }
 
@@ -104,7 +108,7 @@ public class ZohoEntityArray {
         }
     }
 
-    public interface OnChangedListener {
+    public interface OnDataChangedListener {
         void onChanged();
     }
 

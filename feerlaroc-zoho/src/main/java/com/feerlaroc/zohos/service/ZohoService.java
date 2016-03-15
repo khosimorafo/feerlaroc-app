@@ -4,7 +4,7 @@ import com.feerlaroc.core.Command;
 import com.feerlaroc.core.service.CoreServices;
 import com.feerlaroc.core.service.SingletonService;
 import com.feerlaroc.zohos.controller.ZohoApi;
-import com.feerlaroc.zohos.schema.callback.ZohoApiService;
+import com.feerlaroc.zohos.core.ZohoApiService;
 
 import java.util.Properties;
 

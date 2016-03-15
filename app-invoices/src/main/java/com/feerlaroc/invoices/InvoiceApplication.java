@@ -1,14 +1,13 @@
 package com.feerlaroc.invoices;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.feerlaroc.core.Services;
-import com.feerlaroc.core.app.App;
 import com.feerlaroc.core.entity.EntityInterface;
 import com.feerlaroc.core.service.Service;
-import com.feerlaroc.invoices.application.InvoiceApp;
 import com.feerlaroc.invoices.common.dagger.ObjectGraphService;
-import com.feerlaroc.zohos.schema.callback.ZohoApiService;
+import com.feerlaroc.zohos.core.ZohoApiService;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -32,6 +31,7 @@ public class InvoiceApplication extends Application {
     Set<Class> entityClasses = new LinkedHashSet<>();
 
     ZohoApiService mService;
+
 
 
     @Override public Object getSystemService(String name) {
@@ -60,13 +60,9 @@ public class InvoiceApplication extends Application {
         // Initialize the singletons so their instances
         // are bound to the application process.
         initSingletons();
-        App app = new InvoiceApp();
-        mService = app.getService();
+        //App app = new InvoiceApp();
+        //mService = app.getService();
 
-    }
-
-    public ZohoApiService getAPIService(){
-        return mService;
     }
 
     protected void initSingletons()
@@ -75,6 +71,11 @@ public class InvoiceApplication extends Application {
         setApplicationClasses();
         // Initialize the instance of Services
         Services.initialize(serviceClasses, entityClasses);
+    }
+
+    @Override
+    public Context getBaseContext() {
+        return super.getBaseContext();
     }
 
     private void setApplicationClasses() {

@@ -7,19 +7,15 @@ import com.feerlaroc.invoices.R;
 import com.feerlaroc.invoices.application.AppDataHolder;
 import com.feerlaroc.invoices.common.flow.Layout;
 import com.feerlaroc.invoices.common.mortarscreen.WithModule;
+import com.feerlaroc.invoices.view.CustomerDetailFinancialsView;
 import com.feerlaroc.invoices.view.CustomerDetailHeaderView;
 import com.feerlaroc.invoices.view.CustomerDetailView;
-import com.feerlaroc.invoices.view.TransactionListView;
 import com.feerlaroc.zohos.controller.ZohoApi;
-import com.feerlaroc.zohos.schema.callback.ZohoApiService;
+import com.feerlaroc.zohos.core.ZohoApiService;
 import com.feerlaroc.zohos.schema.helper.Constants;
 import com.feerlaroc.zohos.schema.pojo.Contact;
 
-import org.feerlaroc.widgets.utils.Month;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -36,7 +32,7 @@ import retrofit2.Response;
 public class CustomerDetailScreen extends Path {
 
     @dagger.Module(injects = {CustomerDetailView.class, CustomerDetailHeaderView.class,
-            TransactionListView.class}, addsTo = ActivityModule.class)
+            CustomerDetailFinancialsView.class}, addsTo = ActivityModule.class)
 
     public class Module {
     }
@@ -53,16 +49,16 @@ public class CustomerDetailScreen extends Path {
 
         @Override
         protected void onLoad(Bundle savedInstanceState) {
+
             super.onLoad(savedInstanceState);
 
-            getView().getMonthsBar().init(getMonths(), 0.0);
-
             getCustomerData();
+
         }
 
         private void getCustomerData(){
 
-            mContact = AppDataHolder.getInstance().getEntity(Contact.class);
+            mContact = AppDataHolder.getInstance().getEntityAsMap(Contact.class);
 
             Call<Object> call = mService.get(mKey, Constants.ZOHO.API,
                     Constants.ZOHO.VERSION, mContact.get("contact_id").toString(),
@@ -73,7 +69,6 @@ public class CustomerDetailScreen extends Path {
                 public void onResponse(Call<Object> call, Response<Object> response) {
                     mContact = (Map<String, Object>) ((Map<String, Object>) response.body()).get("contact");
                     AppDataHolder.getInstance().setEntity(mContact, Contact.class);
-                    updateMonthsBar();
                 }
 
                 @Override
@@ -82,28 +77,7 @@ public class CustomerDetailScreen extends Path {
                 }
             });
 
-
         }
 
-        private void updateMonthsBar(){
-
-            // Draw new month bar
-            getView().getMonthsBar().setAmountOutstanding((Double) mContact.get("outstanding_receivable_amount"));
-            getView().refreshMonthsBar();
-            
-        }
-
-
-
-        private List<Month> getMonths(){
-
-            List<Month> months = new ArrayList<>();
-            months.add(new Month("January", "2016", "Jan", true));
-            months.add(new Month("December", "2015", "Dec", true));
-            months.add(new Month("November", "2015", "Nov", false));
-            months.add(new Month("October", "2015", "Oct", false));
-            return months;
-
-        }
     }
 }

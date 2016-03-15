@@ -16,8 +16,10 @@
             <option value="$PROJECT_DIR$/feerlaroc-core" />
             <option value="$PROJECT_DIR$/feerlaroc-firebase" />
             <option value="$PROJECT_DIR$/feerlaroc-moonmonkeylabs" />
+            <option value="$PROJECT_DIR$/feerlaroc-utils" />
             <option value="$PROJECT_DIR$/feerlaroc-widgets" />
             <option value="$PROJECT_DIR$/feerlaroc-zoho" />
+            <option value="$PROJECT_DIR$/third-party-datepicker" />
           </set>
         </option>
         <option name="myModules">
@@ -30,8 +32,10 @@
             <option value="$PROJECT_DIR$/feerlaroc-core" />
             <option value="$PROJECT_DIR$/feerlaroc-firebase" />
             <option value="$PROJECT_DIR$/feerlaroc-moonmonkeylabs" />
+            <option value="$PROJECT_DIR$/feerlaroc-utils" />
             <option value="$PROJECT_DIR$/feerlaroc-widgets" />
             <option value="$PROJECT_DIR$/feerlaroc-zoho" />
+            <option value="$PROJECT_DIR$/third-party-datepicker" />
           </set>
         </option>
       </GradleProjectSettings>

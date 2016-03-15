@@ -8,24 +8,24 @@ import java.util.Map;
 public class AppDataHolder<T> {
 
     Map<String, OnModelDataChangedListener> mListeners = new HashMap<>();
-    Map<String, Map<String, Object>> mEntities = new HashMap<>();
+    Map<String, Object> mEntities = new HashMap<>();
 
     private static final AppDataHolder holder = new AppDataHolder();
     public static AppDataHolder getInstance() {return holder;}
 
-    public Map<String, Object> getEntity(Class<T> clazz) {
+    public Object getEntity(Class<T> clazz) {
         
         for(Map.Entry entry : mEntities.entrySet()){
             String key = (String) entry.getKey();
             if(clazz.getCanonicalName().equals(key)){
-                return (Map<String, Object>) entry.getValue();
+                return entry.getValue();
             }
         }
 
         return null;
     }
 
-    public void setEntity(Map<String, Object> entityMap, Class<T> clazz) {
+    public void setEntity(Object object, Class<T> clazz) {
         
         String keyToRemove = "";
         for(Map.Entry entry : mEntities.entrySet()){
@@ -35,7 +35,7 @@ public class AppDataHolder<T> {
             }
         }
         mEntities.remove(keyToRemove);
-        mEntities.put(clazz.getCanonicalName(), entityMap);
+        mEntities.put(clazz.getCanonicalName(), object);
         notifyDataListeners(clazz);
 
     }
@@ -52,9 +52,16 @@ public class AppDataHolder<T> {
             String key = (String) entry.getKey();
             if(clazz.getCanonicalName().equals(key)){
                 listener = (OnModelDataChangedListener) entry.getValue();
-                listener.onModelDataChanged(mEntities.get(key));
+                listener.onModelDataChanged((Map<String, Object>) mEntities.get(key));
             }
         }
+
+    }
+
+
+    public Map<String,Object> getEntityAsMap(Class<T> clazz) {
+
+        return (Map<String, Object>) getEntity(clazz);
 
     }
 }

@@ -148,7 +148,7 @@ public class Bar {
     /**
      * Gets the zero-based index of the nearest tick to the given thumb.
      *
-     * @param thumb the Thumb to find the nearest tick for
+     * @param thumb the Pin to find the nearest tick for
      * @return the zero-based index of the nearest tick
      */
     public int getNearestTickIndex(PinView thumb) {

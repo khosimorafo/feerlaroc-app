@@ -3,4 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="color_overdue">#f00</color>
+    <color name="color_unpaid">#E0CD00</color>
+    <color name="color_paid">#53AA14</color>
+    <color name="color_draft">#49C5FF</color>
+    <color name="color_partially_paid">#4A35E8</color>
+    <color name="color_sent">#C9851F</color>
+    <color name="color_void">#0D0106</color>
+
 </resources>

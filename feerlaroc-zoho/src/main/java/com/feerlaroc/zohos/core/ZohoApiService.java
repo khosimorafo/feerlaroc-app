@@ -1,4 +1,4 @@
-package com.feerlaroc.zohos.schema.callback;
+package com.feerlaroc.zohos.core;
 
 import com.feerlaroc.core.entity.EntityInterface;
 import com.feerlaroc.zohos.response.FriendResponse;
@@ -15,7 +15,7 @@ import rx.Observable;
 /**
  * Created by root on 2016/02/18.
  */
-public interface ZohoApiService {
+public interface ZohoApiService{
 
     @GET("/{api}/{version}/{key}")
     Observable<Object> get(@Path("key") String key,
@@ -43,7 +43,12 @@ public interface ZohoApiService {
 
 
     @POST("/{key}")
-    Call<Object> create(@Path("key") String key, @Body EntityInterface entity);
+    Call<Object> create(@Path("key") String key,
+                        @Path("api") String api,
+                        @Path("version") String version,
+                        @Query("authtoken") String authtoken,
+                        @Query("organization_id") String organization_id,
+                        @Body EntityInterface entity);
 
     @DELETE("/{key}/{id}")
     Call<EntityInterface> delete(@Path("key") String key, @Path("id") String id);

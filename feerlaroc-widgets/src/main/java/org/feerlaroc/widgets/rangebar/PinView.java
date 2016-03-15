@@ -82,6 +82,10 @@ public class PinView extends View {
 
     private boolean mHasBeenPressed = false;
 
+    /*
+    * Holds the value of the object that is represented by the Pin
+    * */
+    protected String mTag = "";
     // Constructors ////////////////////////////////////////////////////////////
 
     public PinView(Context context) {
@@ -144,6 +148,7 @@ public class PinView extends View {
         mTextPaint.setColor(textColor);
         mTextPaint.setAntiAlias(true);
         mTextPaint.setTextSize(textSize);
+
         // Creates the paint and sets the Paint values
         mCirclePaint = new Paint();
         mCirclePaint.setColor(circleColor);
@@ -289,4 +294,18 @@ public class PinView extends View {
         }
         paint.setTextSize(estimatedFontSize * mDensity);
     }
+
+
+    public void setColor(int color){
+        mCirclePaint.setColor(color);
+    }
+
+    public String getTag() {
+        return mTag;
+    }
+
+    public void setTag(String tag) {
+        this.mTag = tag;
+    }
+
 }

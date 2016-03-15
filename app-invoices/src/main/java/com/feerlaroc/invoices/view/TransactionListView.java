@@ -16,7 +16,7 @@ import javax.inject.Inject;
 public class TransactionListView extends CustomLinearLayout<TransactionListScreen.Presenter> {
 
     @Inject
-    protected TransactionListScreen.Presenter presenter;
+    protected TransactionListScreen.Presenter mPresenter;
 
     RecyclerView mRecyclerView;
 
@@ -32,9 +32,8 @@ public class TransactionListView extends CustomLinearLayout<TransactionListScree
 
     }
 
-    @Override
-    public TransactionListScreen.Presenter getPresenter() {
-        return presenter;
+    public TransactionListScreen.Presenter getmPresenter() {
+        return mPresenter;
     }
 
     public RecyclerView getTransactionsRecyclerView() {

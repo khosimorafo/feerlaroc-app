@@ -29,14 +29,14 @@ public abstract class CustomRelativeLayout<T extends Presenter> extends Relative
   @Override
   protected void onAttachedToWindow() {
     super.onAttachedToWindow();
-    getPresenter().takeView(this);
+    getmPresenter().takeView(this);
   }
 
   @Override
   protected void onDetachedFromWindow() {
     super.onDetachedFromWindow();
-    getPresenter().dropView(this);
+    getmPresenter().dropView(this);
   }
 
-  public abstract T getPresenter();
+  public abstract T getmPresenter();
 }

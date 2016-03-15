@@ -1,10 +1,17 @@
 package com.feerlaroc.zohos.command;
 
+import android.content.Context;
+
 import com.feerlaroc.core.Command;
 import com.feerlaroc.core.entity.EntityInterface;
-import com.feerlaroc.core.listeners.FrameworkCompletionListener;
-import com.feerlaroc.zohos.schema.callback.ZohoApiService;
+import com.feerlaroc.zohos.core.ZohoApiService;
+import com.feerlaroc.zohos.listener.ZohoCallCompletionListener;
+import com.feerlaroc.zohos.schema.helper.Constants;
 import com.feerlaroc.zohos.service.ZohoService;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -12,37 +19,57 @@ import com.feerlaroc.zohos.service.ZohoService;
  */
 public abstract class ZohoServiceCommand<T extends EntityInterface> extends Command implements ZohoCommandInterface {
 
+    private final Context mContext;
     ZohoApiService mZohoApiService;
 
+    public ZohoServiceCommand(Context context){
+
+        mContext = context;
+
+    }
+
     @Override
-    public <T> void add(T t, final FrameworkCompletionListener listener) {
+    public <T> void add(T t, final ZohoCallCompletionListener listener) {
 
         EntityInterface _entity = (EntityInterface) t;
-        mZohoApiService = (ZohoApiService) getArgument(ZohoService.ZOHO_SERVICE); //ZohoApi.getInstance().get();
+        mZohoApiService = (ZohoApiService) getArgument(ZohoService.ZOHO_SERVICE);
 
-        //Call<EntityInterface> call = mZohoApiService.create(_entity.DBKey(), _entity);
+        Call<Object> call = mZohoApiService.create(_entity.DBKey(), Constants.ZOHO.API,
+                Constants.ZOHO.VERSION, Constants.ZOHO.AUTHTOKEN, Constants.ZOHO.ORGANIZATION_ID,
+                _entity);
 
+        call.enqueue(new Callback<Object>() {
+
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+                listener.onSuccess(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
+
+            }
+
+        });
 
     }
 
 
 
-    public <T> void get(T t, final FrameworkCompletionListener listener) {
+    public <T> void get(T t, final ZohoCallCompletionListener listener) {
 
         EntityInterface _entity = (EntityInterface) t;
-        mZohoApiService = (ZohoApiService) getArgument(ZohoService.ZOHO_SERVICE); //ZohoApi.getInstance().get();
-
-        //Call<EntityInterface> call = mZohoApiService.get(_entity.DBKey(), _entity.id());
+        mZohoApiService = (ZohoApiService) getArgument(ZohoService.ZOHO_SERVICE);
 
     }
 
     @Override
-    public <T> void update(T t, final FrameworkCompletionListener listener) {
+    public <T> void update(T t, final ZohoCallCompletionListener listener) {
 
     }
 
     @Override
-    public <T> void remove(T t, final FrameworkCompletionListener listener) {
+    public <T> void remove(T t, final ZohoCallCompletionListener listener) {
 
         EntityInterface _entity = (EntityInterface) t;
         remove(_entity.DBKey(), _entity.id(), listener);
@@ -50,7 +77,7 @@ public abstract class ZohoServiceCommand<T extends EntityInterface> extends Comm
     }
 
     @Override
-    public void remove(String key, String id, final FrameworkCompletionListener listener) {
+    public void remove(String key, String id, final ZohoCallCompletionListener listener) {
 
         mZohoApiService = (ZohoApiService) getArgument(ZohoService.ZOHO_SERVICE);
 
@@ -60,8 +87,8 @@ public abstract class ZohoServiceCommand<T extends EntityInterface> extends Comm
     @Override
     public ZohoApiService getApiService(){
 
-        ZohoApiService service = (ZohoApiService) getArgument(ZohoService.ZOHO_SERVICE);
-        return service;
+        mZohoApiService = (ZohoApiService) getArgument(ZohoService.ZOHO_SERVICE);
+        return mZohoApiService;
 
     }
 

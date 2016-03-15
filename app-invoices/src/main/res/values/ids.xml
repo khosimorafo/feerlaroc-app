@@ -18,4 +18,13 @@
 
 <resources>
   <item type="id" name="screen_switcher_tag"/>
+
+  <item type="id" name="monthsBar"/>
+
+  <item type="id" name="pin_1"/>
+  <item type="id" name="pin_2"/>
+  <item type="id" name="pin_3"/>
+  <item type="id" name="pin_4"/>
+
+
 </resources>
