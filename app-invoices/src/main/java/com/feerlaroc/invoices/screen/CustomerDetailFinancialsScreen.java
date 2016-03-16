@@ -27,6 +27,7 @@ import java.util.Map;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import flow.Flow;
 import flow.path.Path;
 import mortar.ViewPresenter;
 
@@ -116,6 +117,8 @@ public class CustomerDetailFinancialsScreen extends Path{
         public void onPinClicked(PinView pin) {
 
             AppDataHolder.getInstance().setEntity(pin, PinView.class);
+            Flow.get(getView()).set(new PaymentScreen());
+
 
         }
     }

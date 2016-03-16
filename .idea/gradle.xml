@@ -9,6 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/SalesforceSDK" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app-invoices" />
             <option value="$PROJECT_DIR$/app-quantum" />
@@ -19,12 +20,17 @@
             <option value="$PROJECT_DIR$/feerlaroc-utils" />
             <option value="$PROJECT_DIR$/feerlaroc-widgets" />
             <option value="$PROJECT_DIR$/feerlaroc-zoho" />
+            <option value="$PROJECT_DIR$/libs" />
+            <option value="$PROJECT_DIR$/libs/SalesforceSDK" />
+            <option value="$PROJECT_DIR$/native" />
+            <option value="$PROJECT_DIR$/native/TemplateApp" />
             <option value="$PROJECT_DIR$/third-party-datepicker" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/SalesforceSDK" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app-invoices" />
             <option value="$PROJECT_DIR$/app-quantum" />
@@ -35,6 +41,10 @@
             <option value="$PROJECT_DIR$/feerlaroc-utils" />
             <option value="$PROJECT_DIR$/feerlaroc-widgets" />
             <option value="$PROJECT_DIR$/feerlaroc-zoho" />
+            <option value="$PROJECT_DIR$/libs" />
+            <option value="$PROJECT_DIR$/libs/SalesforceSDK" />
+            <option value="$PROJECT_DIR$/native" />
+            <option value="$PROJECT_DIR$/native/TemplateApp" />
             <option value="$PROJECT_DIR$/third-party-datepicker" />
           </set>
         </option>

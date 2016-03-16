@@ -4,7 +4,6 @@ import com.feerlaroc.core.entity.EntityInterface;
 import com.feerlaroc.zohos.response.FriendResponse;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -42,13 +41,14 @@ public interface ZohoApiService{
                              @Query("organization_id") String organization_id);
 
 
-    @POST("/{key}")
-    Call<Object> create(@Path("key") String key,
+    @POST("/{api}/{version}/{key}")
+    Call<String> create(@Path("key") String key,
                         @Path("api") String api,
                         @Path("version") String version,
                         @Query("authtoken") String authtoken,
                         @Query("organization_id") String organization_id,
-                        @Body EntityInterface entity);
+                        @Query("JSONString") String JSONString);
+
 
     @DELETE("/{key}/{id}")
     Call<EntityInterface> delete(@Path("key") String key, @Path("id") String id);

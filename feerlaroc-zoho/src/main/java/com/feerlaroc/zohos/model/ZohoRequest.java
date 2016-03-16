@@ -2,11 +2,14 @@ package com.feerlaroc.zohos.model;
 
 import android.content.Context;
 
+import com.feerlaroc.core.model.JsonAble;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * Created by root on 2016/03/14.
@@ -29,7 +32,7 @@ public abstract class ZohoRequest implements ZohoRequestObject {
 
         mContext = context;
         mAssetPath = file;
-        mJsonObject = new JsonObject();
+        mJsonObject = getTemplate();
 
     }
 
@@ -37,8 +40,16 @@ public abstract class ZohoRequest implements ZohoRequestObject {
         mJsonObject.remove(property);
     }
 
-    public void add(String property, ZohoElement value){
-        mJsonObject.add(property, value);
+    public void add(String property, Object value){
+
+        List<JsonAble> v = (List<JsonAble>) value;
+
+        JsonArray jsonArray = new JsonArray();
+        for (int i=0; i < v.size(); i++) {
+            jsonArray.add(v.get(i).getJSONObject());
+        }
+
+        mJsonObject.add(property, jsonArray);
     }
 
     public void addProperty(String property, String value){
@@ -91,10 +102,21 @@ public abstract class ZohoRequest implements ZohoRequestObject {
     }
 
     @Override
-    public JsonObject get(){
+    public JsonObject getTemplate(){
 
         return new JsonParser().parse(getJsonString()).getAsJsonObject();
 
+    }
+
+    @Override
+    public JsonObject get(){
+
+        return mJsonObject;
+
+    }
+
+    public String getValueAsString(){
+        return mJsonObject.toString();
     }
 
 }

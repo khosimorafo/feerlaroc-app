@@ -25,12 +25,6 @@ public class CustomerPaymentRequest extends ZohoRequest {
     }
 
 
-    public void prepareRequestObject(){
-
-    }
-
-
-
     @Override
     public String id() {
         return null;
@@ -43,6 +37,7 @@ public class CustomerPaymentRequest extends ZohoRequest {
 
     @Override
     public <T> T getValue(Class<T> clazz) {
-        return null;
+        return (T) get();
     }
+
 }

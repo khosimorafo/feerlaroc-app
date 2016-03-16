@@ -47,6 +47,7 @@ public class ZohoEntityArray {
     public ZohoEntityArray(final String key) {
 
         mService = ZohoApi.getInstance().get();
+
         mKey = key;
 
         mObservable = (Observable<Object>)

@@ -1,38 +1,38 @@
 package com.feerlaroc.invoices.controller.payments;
 
-import com.feerlaroc.zohos.schema.types.CustomerID;
-import com.feerlaroc.zohos.schema.types.InvoiceID;
+import android.content.Context;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.feerlaroc.zohos.model.CustomerPaymentRequest;
+import com.feerlaroc.zohos.schema.types.AppliedAmount;
+import com.feerlaroc.zohos.schema.types.InvoiceID;
 
 /**
  * Created by root on 2016/03/10.
  */
 public class PaymentManager {
 
-
-
-    private CustomerID mCustomerID;
+    CustomerPaymentRequest mCustomerPaymentRequest;
     private InvoiceID mInvoiceID;
-
-    public void process(String invoice_id){
-
-        mInvoiceID = new InvoiceID(invoice_id);
-        mCustomerID = new CustomerID("");
-
-        PaymentWrapper wrapper = new PaymentWrapper(mCustomerID);
-        PaymentWrapper.InvoiceToPayWrapper invoiceToPayWrapper;
-
-        List<PaymentWrapper.InvoiceToPayWrapper> invoices =
-                new ArrayList<>();
+    private AppliedAmount mAppliedAmount;
 
 
-        invoiceToPayWrapper = PaymentWrapper
-                .InvoiceToPayWrapper.getInstance(mInvoiceID, 300.0);
-        invoices.add(invoiceToPayWrapper);
+    public PaymentManager(Context context){
 
-        wrapper.addInvoices(invoices);
+        mCustomerPaymentRequest = CustomerPaymentRequest
+                .getInstance(context, "invoice_request.json");
+
+    }
+
+
+    public void process(InvoiceID invoice_id, Double amount){
+
+        mInvoiceID = invoice_id;
+        mAppliedAmount = new AppliedAmount(amount);
+
+        PaymentRequestBuilder builder
+                = new PaymentRequestBuilder(mCustomerPaymentRequest);
+
+        builder.build(mInvoiceID, mAppliedAmount);
 
     }
 
@@ -41,4 +41,11 @@ public class PaymentManager {
 
     }
 
+
+
+    public CustomerPaymentRequest getObject(){
+
+        return mCustomerPaymentRequest;
+
+    }
 }

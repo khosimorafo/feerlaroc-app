@@ -1,11 +1,11 @@
-package com.feerlaroc.core.schema.types;
+package org.feerlaroc.types;
 
 /**
  * Created by root on 2016/03/14.
  *
  * Deligate class for strings
  */
-public abstract class CustomString {
+public class CustomString {
 
     String mValue;
 
@@ -17,6 +17,12 @@ public abstract class CustomString {
 
     public String getValue() {
         return mValue;
+    }
+
+    public boolean compare (CustomString other){
+
+        return this.mValue.equals(other.mValue) ? true : false;
+
     }
 
 }

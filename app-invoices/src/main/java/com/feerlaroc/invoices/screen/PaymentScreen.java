@@ -4,15 +4,19 @@ import android.os.Bundle;
 
 import com.feerlaroc.core.app.App;
 import com.feerlaroc.core.error.FrameworkException;
-import com.feerlaroc.core.listeners.FrameworkCompletionListener;
 import com.feerlaroc.invoices.ActivityModule;
 import com.feerlaroc.invoices.R;
+import com.feerlaroc.invoices.application.AppDataHolder;
 import com.feerlaroc.invoices.application.InvoiceApp;
 import com.feerlaroc.invoices.common.flow.Layout;
 import com.feerlaroc.invoices.common.mortarscreen.WithModule;
-import com.feerlaroc.invoices.view.ContactsView;
+import com.feerlaroc.invoices.controller.payments.PaymentManager;
 import com.feerlaroc.invoices.view.PaymentView;
+import com.feerlaroc.zohos.listener.ZohoCallCompletionListener;
 import com.feerlaroc.zohos.model.CustomerPaymentRequest;
+import com.feerlaroc.zohos.schema.types.InvoiceID;
+
+import org.feerlaroc.widgets.rangebar.PinView;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -33,35 +37,55 @@ public class PaymentScreen extends Path {
 
 
     @Singleton
-    public static class Presenter extends ViewPresenter<ContactsView>
-            implements FrameworkCompletionListener{
+    public static class Presenter extends ViewPresenter<PaymentView>
+            implements ZohoCallCompletionListener {
 
-
+        PaymentManager mPaymentManager;
         App app = new InvoiceApp();
-        CustomerPaymentRequest mCustomerPaymentRequest;
+        InvoiceID mInvoiceID;
+        PinView mPin;
 
 
         @Inject
-        public Presenter() {}
+        public Presenter() {
+
+            mPin = (PinView) AppDataHolder.getInstance().getEntity(PinView.class);
+
+        }
 
         @Override
         protected void onLoad(Bundle savedInstanceState) {
+
             super.onLoad(savedInstanceState);
+            mPaymentManager = new PaymentManager(getView().getContext());
 
-            mCustomerPaymentRequest = CustomerPaymentRequest.getInstance(getView().getContext(), "");
-            //mCustomerPaymentRequest.
 
+        }
+
+        public void makePayment(){
+
+            mInvoiceID = new InvoiceID(mPin.getTag());
+
+            mPaymentManager.process(mInvoiceID, 300.00);
+
+            save();
         }
 
         private void save(){
 
             try {
 
-                app.create(CustomerPaymentRequest.class, mCustomerPaymentRequest, this);
+                app.create(CustomerPaymentRequest.class, mPaymentManager.getObject(), this);
 
             } catch (FrameworkException e) {
                 e.printStackTrace();
             }
+        }
+
+
+        @Override
+        public void onSuccess(Object o) {
+
         }
 
         @Override

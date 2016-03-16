@@ -3,6 +3,8 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
+    useLibrary  'org.apache.http.legacy'
+
 
     defaultConfig {
         applicationId "com.feerlaroc.invoices"
@@ -20,7 +22,8 @@ android {
 
     packagingOptions {
         exclude 'META-INF/LICENSE'
-        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/NOTICE'
     }
 }
@@ -32,6 +35,7 @@ dependencies {
     compile project(':feerlaroc-widgets')
     compile project(':feerlaroc-moonmonkeylabs')
     compile project(':feerlaroc-utils')
+    compile project(':libs:SalesforceSDK')
 
 
     testCompile 'junit:junit:4.12'

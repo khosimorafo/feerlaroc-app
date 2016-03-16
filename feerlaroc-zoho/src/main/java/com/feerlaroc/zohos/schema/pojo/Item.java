@@ -26,4 +26,9 @@ public class Item implements EntityInterface {
         return null;
     }
 
+    @Override
+    public String getValueAsString() {
+        return null;
+    }
+
 }

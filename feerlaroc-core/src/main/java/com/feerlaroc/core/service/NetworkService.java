@@ -4,6 +4,8 @@ import android.support.v4.util.LruCache;
 
 import com.feerlaroc.core.converter.AnInterfaceAdapter;
 import com.feerlaroc.core.converter.FeerlarocConverterFactory;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squareup.moshi.Moshi;
 
 import java.io.IOException;
@@ -14,6 +16,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -40,6 +43,7 @@ public class NetworkService{
         Moshi moshi = new Moshi.Builder()
                 .add(new AnInterfaceAdapter())
                 .build();
+
         FeerlarocConverterFactory factory = FeerlarocConverterFactory.create(moshi);
         FeerlarocConverterFactory factoryLenient = factory.asLenient();
 
@@ -49,6 +53,19 @@ public class NetworkService{
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
 
+    }
+
+    public NetworkService(String baseUrl, boolean usegson){
+
+        Gson gson = new GsonBuilder()
+                .disableHtmlEscaping()
+                .create();
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                //.addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
     }
 
     /**

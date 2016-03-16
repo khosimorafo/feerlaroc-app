@@ -8,6 +8,7 @@ import com.feerlaroc.core.entity.EntityInterface;
 import com.feerlaroc.core.service.Service;
 import com.feerlaroc.invoices.common.dagger.ObjectGraphService;
 import com.feerlaroc.zohos.core.ZohoApiService;
+import com.salesforce.androidsdk.app.SalesforceSDKManager;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -57,12 +58,12 @@ public class InvoiceApplication extends Application {
     {
 
         super.onCreate();
+
+        SalesforceSDKManager.initNative(getApplicationContext(), new NativeKeyImpl(), MainActivity.class);
+
         // Initialize the singletons so their instances
         // are bound to the application process.
         initSingletons();
-        //App app = new InvoiceApp();
-        //mService = app.getService();
-
     }
 
     protected void initSingletons()
@@ -106,3 +107,4 @@ public class InvoiceApplication extends Application {
         }
     }
 }
+

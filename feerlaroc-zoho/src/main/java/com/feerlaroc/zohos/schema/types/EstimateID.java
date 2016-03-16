@@ -1,7 +1,8 @@
 package com.feerlaroc.zohos.schema.types;
 
-import com.feerlaroc.core.schema.types.CustomString;
 import com.feerlaroc.zohos.schema.helper.Constants;
+
+import org.feerlaroc.types.CustomString;
 
 /**
  * Created by root on 2016/03/14.

@@ -1,9 +1,8 @@
 package com.feerlaroc.zohos.command;
 
-import android.content.Context;
-
 import com.feerlaroc.core.Command;
 import com.feerlaroc.core.entity.EntityInterface;
+import com.feerlaroc.zohos.controller.ZohoApi;
 import com.feerlaroc.zohos.core.ZohoApiService;
 import com.feerlaroc.zohos.listener.ZohoCallCompletionListener;
 import com.feerlaroc.zohos.schema.helper.Constants;
@@ -19,34 +18,32 @@ import retrofit2.Response;
  */
 public abstract class ZohoServiceCommand<T extends EntityInterface> extends Command implements ZohoCommandInterface {
 
-    private final Context mContext;
     ZohoApiService mZohoApiService;
-
-    public ZohoServiceCommand(Context context){
-
-        mContext = context;
-
-    }
 
     @Override
     public <T> void add(T t, final ZohoCallCompletionListener listener) {
+        mZohoApiService = ZohoApi.getInstance().getPostService();
 
         EntityInterface _entity = (EntityInterface) t;
-        mZohoApiService = (ZohoApiService) getArgument(ZohoService.ZOHO_SERVICE);
+        String JSONString = _entity.getValueAsString();
 
-        Call<Object> call = mZohoApiService.create(_entity.DBKey(), Constants.ZOHO.API,
+        Call<String> call = mZohoApiService.create(_entity.DBKey(), Constants.ZOHO.API,
                 Constants.ZOHO.VERSION, Constants.ZOHO.AUTHTOKEN, Constants.ZOHO.ORGANIZATION_ID,
-                _entity);
+                JSONString);
 
-        call.enqueue(new Callback<Object>() {
+        call.enqueue(new Callback<String>() {
 
             @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
+            public void onResponse(Call<String> call, Response<String> response) {
+
                 listener.onSuccess(response.body());
+
             }
 
             @Override
-            public void onFailure(Call<Object> call, Throwable t) {
+            public void onFailure(Call<String> call, Throwable t) {
+
+                listener.onError();
 
             }
 
@@ -96,5 +93,6 @@ public abstract class ZohoServiceCommand<T extends EntityInterface> extends Comm
     public Class getServiceClass() {
         return ZohoService.class;
     }
+
 
 }

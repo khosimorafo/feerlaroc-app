@@ -1,4 +1,4 @@
-package com.feerlaroc.core.schema.types;
+package org.feerlaroc.types;
 
 /**
  * Created by root on 2016/03/14.

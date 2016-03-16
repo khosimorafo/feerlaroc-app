@@ -100,6 +100,11 @@ public class Contact implements EntityInterface{
 
     }
 
+    @Override
+    public String getValueAsString() {
+        return null;
+    }
+
     /**
      *
      * @return

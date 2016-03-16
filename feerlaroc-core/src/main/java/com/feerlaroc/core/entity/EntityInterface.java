@@ -9,5 +9,6 @@ public interface EntityInterface {
     String DBKey();
 
     <T> T getValue(Class<T> clazz);
+    String getValueAsString();
 
 }

@@ -36,6 +36,8 @@ public class TransactionListScreen extends Path {
 
         TransactionsAdapter mAdapter;
         Map<String, Object> mContact;
+        Map<String, Object> mSelectedTransaction;
+
 
 
         @Inject
@@ -64,6 +66,10 @@ public class TransactionListScreen extends Path {
         @Override
         public void onItemClick(int position) {
 
+            /*mSelectedTransaction = mAdapter.getItem(position);
+            AppDataHolder.getInstance().setEntity(mSelectedTransaction, TransactionSnapshot.class);
+            Flow.get(getView()).set(new PaymentScreen());
+*/
         }
 
     }

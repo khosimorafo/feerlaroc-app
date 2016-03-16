@@ -11,11 +11,10 @@ import com.feerlaroc.zohos.schema.helper.Constants;
 public class ZohoApi {
 
     private static final ZohoApi holder = new ZohoApi();
+
     public static ZohoApi getInstance() {return holder;}
 
-    public ZohoApi(){
-
-    }
+    public ZohoApi(){}
 
     public ZohoApiService get() {
 
@@ -23,8 +22,16 @@ public class ZohoApi {
 
     }
 
+    public ZohoApiService getPostService() {
+
+        return new NetworkService(Constants.ZOHO.BASE_URL, true).get().create(ZohoApiService.class);
+
+    }
+
     public InvoiceService getInvoiceService(){
+
         return  new NetworkService(Constants.ZOHO.BASE_URL).get().create(InvoiceService.class);
+
     }
 
 }

@@ -1,1 +1,1 @@
-include ':app', ':feerlaroc-core', ':feerlaroc-moonmonkeylabs', ':feerlaroc-zoho', ':app-invoices', ':app-quantum', ':feerlaroc-firebase', ':feerlaroc-widgets', ':app-tests', ':third-party-datepicker', ':feerlaroc-utils'
+include ':app', ':feerlaroc-core', ':feerlaroc-moonmonkeylabs', ':feerlaroc-zoho', ':app-invoices', ':app-quantum', ':feerlaroc-firebase', ':feerlaroc-widgets', ':app-tests', ':third-party-datepicker', ':feerlaroc-utils', ':SalesforceSDK', ':native:TemplateApp', ':libs:SalesforceSDK'

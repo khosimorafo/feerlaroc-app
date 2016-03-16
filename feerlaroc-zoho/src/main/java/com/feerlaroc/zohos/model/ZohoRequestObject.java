@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
  */
 public interface ZohoRequestObject extends EntityInterface {
 
+    JsonObject getTemplate();
     JsonObject get();
 
 }

@@ -22,4 +22,9 @@ public class Invoice implements EntityInterface {
         return null;
     }
 
+    @Override
+    public String getValueAsString() {
+        return null;
+    }
+
 }
