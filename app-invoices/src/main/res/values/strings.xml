@@ -11,4 +11,14 @@
     <string name="fetch_contacts_button">Fetch Contacts</string>
     <string name="fetch_accounts_button">Fetch Accounts</string>
     <string name="clear_button">Clear</string>
+
+    <string name="hint_item_name">Item Name</string>
+    <string name="hint_item_description">Item Description</string>
+    <string name="hint_item_rate">Item Rate</string>
+    <string name="err_msg_item_name">Enter Product Name</string>
+    <string name="err_msg_item_exists">Product Already Exists</string>
+    <string name="err_msg_item_rate">Enter Valid Item Rate</string>
+    <string name="save">Save</string>
+    <string name="number_zero">0.0</string>
+
 </resources>

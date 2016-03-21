@@ -14,7 +14,7 @@ import com.feerlaroc.invoices.common.flow.GsonParceler;
 import com.feerlaroc.invoices.common.flow.HandlesBack;
 import com.feerlaroc.invoices.common.lifecycle.LifecycleActivity;
 import com.feerlaroc.invoices.common.lifecycle.LifecycleOwner;
-import com.feerlaroc.invoices.screen.ContactsScreen;
+import com.feerlaroc.invoices.screen.item.ItemDetailScreen;
 import com.google.gson.Gson;
 
 import javax.inject.Inject;
@@ -64,7 +64,7 @@ public class InvoicesAppActivity extends LifecycleActivity
         Path newScreen = traversal.destination.top();
         String title = newScreen.getClass().getSimpleName();
         actionBarOwner.setConfig(
-                new ActionBarOwner.Config(false, !(newScreen instanceof ContactsScreen), title, null));
+                new ActionBarOwner.Config(false, !(newScreen instanceof ItemDetailScreen), title, null));
 
         container.dispatch(traversal, callback);
     }
@@ -104,7 +104,7 @@ public class InvoicesAppActivity extends LifecycleActivity
                 getIntent(),
                 savedInstanceState,
                 parceler,
-                History.single(new ContactsScreen()), this);
+                History.single(new ItemDetailScreen()), this);
     }
 
     public void addWizardScope() {

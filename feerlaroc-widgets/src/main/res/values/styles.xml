@@ -13,5 +13,16 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="ProgressToolbarDefault" parent="AppTheme">
+        <item name="duration">1500</item>
+        <item name="delay">150</item>
+        <item name="progressBarWidth">250</item>
+        <item name="progressBarSpotCount">5</item>
+        <item name="progressBarSpotColor">@android:color/transparent</item>
+        <item name="backgroundColor">@android:color/transparent</item>
+        <item name="progressBar">true</item>
+        <item name="toolBarHeight">64</item>
+    </style>
+
 
 </resources>

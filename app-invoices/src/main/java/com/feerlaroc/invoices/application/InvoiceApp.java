@@ -6,8 +6,9 @@ import com.feerlaroc.core.app.App;
 import com.feerlaroc.core.entity.EntityInterface;
 import com.feerlaroc.core.error.FrameworkException;
 import com.feerlaroc.core.listeners.FrameworkCompletionListener;
-import com.feerlaroc.zohos.command.AddZohoEntityCommand;
 import com.feerlaroc.zohos.core.ZohoApiService;
+
+import org.feerlaroc.force.command.AddForceEntityCommand;
 
 import java.io.IOException;
 
@@ -20,7 +21,7 @@ public class InvoiceApp implements App {
     public <T extends EntityInterface> void create(Class<T> type, T entity, FrameworkCompletionListener listener)
             throws FrameworkException {
 
-        AddZohoEntityCommand command = command(AddZohoEntityCommand.class);
+        AddForceEntityCommand command = command(AddForceEntityCommand.class);
         command.addNetworkCompletionListener(listener);
         command.execute(entity, listener);
     }

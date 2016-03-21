@@ -4,6 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="activity_vertical_margin_8dp">8dp</dimen>
 
+
     <dimen name="widget_icon_text_display4">72sp</dimen>
     <dimen name="widget_icon_text_display3">56sp</dimen>
     <dimen name="widget_icon_text_display2">45sp</dimen>

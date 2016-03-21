@@ -41,7 +41,7 @@ public class PaymentView extends CustomLinearLayout<PaymentScreen.Presenter> {
 
 
     @Override
-    public PaymentScreen.Presenter getmPresenter() {
+    public PaymentScreen.Presenter getPresenter() {
         return mPresenter;
     }
 

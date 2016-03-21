@@ -329,7 +329,7 @@ public class Services implements CoreServices {
             baseConf.setProperty(CONFIGURATION,         JarConfigurationProvider.class.getName());
 
             baseConf.setProperty(FIREBASE_URL,          "https://myquantum.firebaseio.com/");
-            baseConf.setProperty(CONFIGURED_SERVICES,   "FirebaseService ZohoService");
+            baseConf.setProperty(CONFIGURED_SERVICES,   "FirebaseService ZohoService ForceService");
 
         }
 

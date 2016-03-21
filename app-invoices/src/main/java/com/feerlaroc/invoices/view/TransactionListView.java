@@ -32,7 +32,7 @@ public class TransactionListView extends CustomLinearLayout<TransactionListScree
 
     }
 
-    public TransactionListScreen.Presenter getmPresenter() {
+    public TransactionListScreen.Presenter getPresenter() {
         return mPresenter;
     }
 

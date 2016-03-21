@@ -39,7 +39,7 @@ public class CustomerDetailView extends CustomRelativeLayout<CustomerDetailScree
     }
 
 
-    public CustomerDetailScreen.Presenter getmPresenter() {
+    public CustomerDetailScreen.Presenter getPresenter() {
         return mPresenter;
     }
 }

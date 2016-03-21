@@ -33,7 +33,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.feerlaroc.invoices.application.AppDataHolder;
 import com.salesforce.androidsdk.app.SalesforceSDKManager;
 import com.salesforce.androidsdk.rest.RestClient;
 import com.salesforce.androidsdk.rest.RestClient.AsyncRequestCallback;
@@ -41,6 +40,7 @@ import com.salesforce.androidsdk.rest.RestRequest;
 import com.salesforce.androidsdk.rest.RestResponse;
 import com.salesforce.androidsdk.ui.SalesforceActivity;
 
+import org.feerlaroc.force.service.ForceApi;
 import org.json.JSONArray;
 
 import java.io.UnsupportedEncodingException;
@@ -82,7 +82,7 @@ public class MainActivity extends SalesforceActivity {
 		// Show everything
 		//findViewById(R.id.root).setVisibility(View.VISIBLE);
 
-		AppDataHolder.getInstance().setEntity(this.client, RestClient.class);
+		ForceApi.getInstance().set(this.client);
 
 		Intent intent = new Intent(this, InvoicesAppActivity.class);
 		startActivity(intent);

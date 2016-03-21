@@ -29,14 +29,14 @@ public abstract class CustomLinearLayout<T extends Presenter> extends LinearLayo
   @Override
   protected void onAttachedToWindow() {
     super.onAttachedToWindow();
-    getmPresenter().takeView(this);
+    getPresenter().takeView(this);
   }
 
   @Override
   protected void onDetachedFromWindow() {
     super.onDetachedFromWindow();
-    getmPresenter().dropView(this);
+    getPresenter().dropView(this);
   }
 
-  public abstract T getmPresenter();
+  public abstract T getPresenter();
 }

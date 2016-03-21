@@ -3,4 +3,11 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Margins for Feerlaroc Progress Toolbar. -->
+    <dimen name="spot_size">10dp</dimen>
+    <dimen name="title_margin">10dp</dimen>
+    <dimen name="progress_margin">24dp</dimen>
+    <dimen name="progress_width">350dp</dimen>
+
 </resources>

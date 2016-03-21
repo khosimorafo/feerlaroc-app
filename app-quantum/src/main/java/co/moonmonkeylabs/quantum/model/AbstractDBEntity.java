@@ -27,4 +27,18 @@ public abstract class AbstractDBEntity implements EntityInterface {
         return id;
     }
 
+    @Override
+    public String DBKey() {
+        return null;
+    }
+
+    @Override
+    public <T> T getValue(Class<T> clazz) {
+        return null;
+    }
+
+    @Override
+    public String getValueAsString() {
+        return null;
+    }
 }

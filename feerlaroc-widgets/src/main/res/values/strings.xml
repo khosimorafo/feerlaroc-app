@@ -47,4 +47,13 @@
         <item>#888888</item>
         <item>#3f51b5</item>
     </string-array>
+
+
+    <!-- Toolbar -->
+
+    <string name="action_new">New</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_button_text">Save</string>
+
+
 </resources>

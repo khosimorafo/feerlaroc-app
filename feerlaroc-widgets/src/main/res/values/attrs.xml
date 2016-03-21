@@ -32,4 +32,19 @@
 
     </declare-styleable>
 
+
+    <declare-styleable name="ProgressToolbar">
+
+        <attr name="duration" format="float"/>
+        <attr name="delay" format="float"/>
+        <attr name="progressBarWidth" format="integer"/>
+        <attr name="progressBarSpotCount" format="integer"/>
+        <attr name="progressBarSpotColor" format="reference|color" />
+        <attr name="backgroundColor" format="reference|color" />
+        <attr name="progressBar" format="boolean" />
+
+        <attr name="toolBarHeight" format="integer"/>
+
+    </declare-styleable>
+
 </resources>

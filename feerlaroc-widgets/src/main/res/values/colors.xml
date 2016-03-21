@@ -9,4 +9,7 @@
     <color name="divider">#1f000000</color>
     <color name="accent">#ff2d6f</color>
 
+
+    <color name="progress_spots_dialog_color">@android:color/holo_blue_dark</color>
+
 </resources>
