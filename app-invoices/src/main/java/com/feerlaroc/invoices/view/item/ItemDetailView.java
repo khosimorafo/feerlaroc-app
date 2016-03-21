@@ -2,15 +2,17 @@ package com.feerlaroc.invoices.view.item;
 
 import android.content.Context;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.feerlaroc.invoices.R;
+import com.feerlaroc.invoices.application.AppDataHolder;
 import com.feerlaroc.invoices.common.widget.CustomRelativeLayout;
 import com.feerlaroc.invoices.screen.item.ItemDetailScreen;
 
 import org.feerlaroc.force.schema.helper.Constants;
+import org.feerlaroc.widgets.toolbar.ProgressToolbar;
 
 import javax.inject.Inject;
 
@@ -39,7 +41,7 @@ public class ItemDetailView extends CustomRelativeLayout<ItemDetailScreen.Presen
     EditText mEditTextItemRate;
 
     //@InjectView(R.id.save_item_btn)
-    Button mButton;
+    ProgressToolbar mProgressToolbar;
 
 
     public ItemDetailView(Context context, AttributeSet attrs) {
@@ -48,14 +50,16 @@ public class ItemDetailView extends CustomRelativeLayout<ItemDetailScreen.Presen
 
     @Override
     protected void onFinishInflate() {
+
         super.onFinishInflate();
 
-        /*mButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getPresenter().createItem();
-            }
-        });*/
+        AppCompatActivity activity = (AppCompatActivity) AppDataHolder.getInstance().getActivityContext();
+
+        mProgressToolbar = new ProgressToolbar(activity, R.layout.progress_toolbar);
+        //mProgressToolbar = (ProgressToolbar) findViewById(R.id.progress_toolbar);
+        //mProgressToolbar.start();
+        //mProgressToolbar.inflateMenu(this, R.menu.toolbar_menu);
+
     }
 
     @Override

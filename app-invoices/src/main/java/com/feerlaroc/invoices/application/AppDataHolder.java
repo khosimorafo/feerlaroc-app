@@ -1,5 +1,7 @@
 package com.feerlaroc.invoices.application;
 
+import android.content.Context;
+
 import com.feerlaroc.invoices.listeners.OnModelDataChangedListener;
 
 import java.util.HashMap;
@@ -9,6 +11,7 @@ public class AppDataHolder<T> {
 
     Map<String, OnModelDataChangedListener> mListeners = new HashMap<>();
     Map<String, Object> mEntities = new HashMap<>();
+    Context mActivityContext;
 
     private static final AppDataHolder holder = new AppDataHolder();
     public static AppDataHolder getInstance() {return holder;}
@@ -63,5 +66,13 @@ public class AppDataHolder<T> {
 
         return (Map<String, Object>) getEntity(clazz);
 
+    }
+
+    public Context getActivityContext() {
+        return mActivityContext;
+    }
+
+    public void setActivityContext(Context mActivityContext) {
+        this.mActivityContext = mActivityContext;
     }
 }

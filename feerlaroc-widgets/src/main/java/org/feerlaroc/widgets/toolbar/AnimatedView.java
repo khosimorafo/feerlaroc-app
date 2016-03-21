@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
 
+import org.feerlaroc.widgets.R;
+
 /**
  * Created by Maxim Dybarsky | maxim.dybarskyy@gmail.com
  * on 13.01.15 at 14:17
@@ -13,6 +15,7 @@ import android.view.View;
 public class AnimatedView extends View {
 
     private int target;
+    private int mSpotColor = 0;
 
     public AnimatedView(Context context) {
         super(context);
@@ -34,6 +37,12 @@ public class AnimatedView extends View {
         return target;
     }
 
+    public void setSpotColor(int color){
+
+        mSpotColor = color;
+
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -53,7 +62,16 @@ public class AnimatedView extends View {
         canvas.drawPaint(paint);
         // Use Color.parseColor to define HTML colors
 
-        paint.setColor(Color.parseColor("#CD5C5C"));
+        if (mSpotColor != 0) {
+
+            paint.setColor(mSpotColor);
+
+        } else{
+
+            paint.setColor(Color.parseColor(String.valueOf(R.color.progress_spots_dialog_color)));
+
+        }
+
 
         canvas.drawCircle(x / 2, y / 2, radius, paint);
 

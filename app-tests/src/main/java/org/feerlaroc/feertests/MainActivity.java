@@ -1,67 +1,79 @@
 package org.feerlaroc.feertests;
 
-import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
-import android.view.Window;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
-import org.feerlaroc.utils.datetime.Month;
-import org.feerlaroc.widgets.monthbar.MonthsBar;
+import org.feerlaroc.widgets.toolbar.AnimatedView;
+import org.feerlaroc.widgets.toolbar.AnimatorPlayer;
+import org.feerlaroc.widgets.toolbar.FeerlarocToolBar;
+import org.feerlaroc.widgets.toolbar.ProgressToolbar;
 
-import java.util.ArrayList;
-import java.util.List;
+public class MainActivity extends AppCompatActivity{
 
+    private static final int DELAY = 150;
+    private static final int DURATION = 1500;
 
-public class MainActivity extends Activity {
+    private int size;
+    private AnimatedView[] spots;
+    private AnimatorPlayer animator;
+    private CharSequence message;
 
-    // Sets the initial values such that the image will be drawn
-    private static final int INDIGO_500 = 0xff3f51b5;
+    ProgressToolbar mProgressToolbar;
+    Button mButton;
 
-    // Sets variables to save the colors of each attribute
-    private int mBarColor;
-
-    private int mConnectingLineColor;
-
-    private int mPinColor;
-    private int mTextColor;
-
-    private int mTickColor;
-
-    // Initializes the RangeBar in the application
-    private MonthsBar mMonthsBar;
-
-    private int mSelectorColor;
-
-    // Saves the state upon rotating the screen/restarting the activity
+    Context mContext;
     @Override
-    protected void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putInt("BAR_COLOR", mBarColor);
-        bundle.putInt("CONNECTING_LINE_COLOR", mConnectingLineColor);
-    }
+    public void onCreate(Bundle savedInstanceState) {
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Removes title bar and sets content view
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main);
+        mContext = this;
 
-        // Gets the RangeBar
-        mMonthsBar = (MonthsBar) findViewById(R.id.months_bar);
-        mMonthsBar.init(getMonths(), 300.0);
+        // creating LinearLayout
+        LinearLayout linLayout = new LinearLayout(this);
+        // specifying vertical orientation
+        linLayout.setOrientation(LinearLayout.VERTICAL);
+        // creating LayoutParams
+        LinearLayout.LayoutParams linLayoutParam
+                = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        // set LinearLayout as a root element of the screen
+        setContentView(linLayout, linLayoutParam);
+        //setContentView(R.layout.main);
+
+
+
+        LinearLayout.LayoutParams lpView
+                = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        //mProgressToolbar = (ProgressToolbar) findViewById(R.id.progress_toolbar);//
+        mProgressToolbar = new ProgressToolbar(this, R.menu.toolbar_menu);
+        //mProgressToolbar.inflateMenu(this, R.menu.toolbar_menu);
+
+        linLayout.addView(mProgressToolbar, lpView);
+
+
+        mProgressToolbar.setListener(new FeerlarocToolBar.FeerlarocToolbarClicked() {
+            @Override
+            public void onMenuItemViewClicked(MenuItem item) {
+                String x = "";
+            }
+
+            @Override
+            public void onActionButtonClicked() {
+                String y = "";
+            }
+        });
+
+
+        mProgressToolbar.start();
 
     }
 
-    private List<Month> getMonths(){
 
-        List<Month> months = new ArrayList<>();
-        months.add(new Month("January", "2016", "Jan", true));
-        months.add(new Month("December", "2015", "Dec", true));
-        months.add(new Month("November", "2015", "Nov", false));
-        months.add(new Month("October", "2015", "Oct", false));
-        return months;
 
-    }
+
 }
+

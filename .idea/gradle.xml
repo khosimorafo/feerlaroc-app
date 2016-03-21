@@ -25,7 +25,6 @@
             <option value="$PROJECT_DIR$/libs/SalesforceSDK" />
             <option value="$PROJECT_DIR$/native" />
             <option value="$PROJECT_DIR$/native/TemplateApp" />
-            <option value="$PROJECT_DIR$/third-party-datepicker" />
           </set>
         </option>
         <option name="myModules">
@@ -47,7 +46,6 @@
             <option value="$PROJECT_DIR$/libs/SalesforceSDK" />
             <option value="$PROJECT_DIR$/native" />
             <option value="$PROJECT_DIR$/native/TemplateApp" />
-            <option value="$PROJECT_DIR$/third-party-datepicker" />
           </set>
         </option>
       </GradleProjectSettings>

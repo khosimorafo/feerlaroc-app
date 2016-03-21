@@ -3,10 +3,13 @@ package com.feerlaroc.invoices;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.feerlaroc.invoices.application.AppDataHolder;
 import com.feerlaroc.invoices.common.actionbar.ActionBarOwner;
 import com.feerlaroc.invoices.common.dagger.ObjectGraphService;
 import com.feerlaroc.invoices.common.flow.FlowHistoryDevHelper;
@@ -105,6 +108,13 @@ public class InvoicesAppActivity extends LifecycleActivity
                 savedInstanceState,
                 parceler,
                 History.single(new ItemDetailScreen()), this);
+
+    }
+
+    @Override
+    public View onCreateView(String name, Context context, AttributeSet attrs) {
+        AppDataHolder.getInstance().setActivityContext(this);
+        return super.onCreateView(name, context, attrs);
     }
 
     public void addWizardScope() {

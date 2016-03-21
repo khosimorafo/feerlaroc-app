@@ -56,8 +56,11 @@ public class ProgressToolbar extends LinearLayout {
     int mDefStyleAttr = 0;
     private Button mButton;
 
-    public ProgressToolbar(Context context) {
+    int mLayout;
+
+    public ProgressToolbar(Context context, int layout) {
         super(context); mContext = context;
+        mLayout = layout;
         init();
     }
 
@@ -113,6 +116,7 @@ public class ProgressToolbar extends LinearLayout {
         for (int i = 0; i < mSpots.length; i++) {
             AnimatedView v = new AnimatedView(getContext());
             v.setBackgroundColor(Color.TRANSPARENT);
+            v.setSpotColor(mSpotsColor);
             v.setTarget(progressWidth);
             v.setXFactor(-1f);
             mProgressLayout.addView(v, size, size);
@@ -191,7 +195,7 @@ public class ProgressToolbar extends LinearLayout {
 
         } finally {
 
-            inflate(getContext(), R.layout.progress_toolbar, this);
+            inflate(mContext, R.layout.progress_toolbar, this);
 
             ta.recycle();
 

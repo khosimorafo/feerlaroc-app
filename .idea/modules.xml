@@ -19,7 +19,6 @@
       <module fileurl="file://$PROJECT_DIR$/libs/libs.iml" filepath="$PROJECT_DIR$/libs/libs.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/SalesforceSDK/libs-SalesforceSDK.iml" filepath="$PROJECT_DIR$/libs/SalesforceSDK/libs-SalesforceSDK.iml" />
       <module fileurl="file://$PROJECT_DIR$/native/native.iml" filepath="$PROJECT_DIR$/native/native.iml" />
-      <module fileurl="file://$PROJECT_DIR$/third-party-datepicker/third-party-datepicker.iml" filepath="$PROJECT_DIR$/third-party-datepicker/third-party-datepicker.iml" />
     </modules>
   </component>
 </project>

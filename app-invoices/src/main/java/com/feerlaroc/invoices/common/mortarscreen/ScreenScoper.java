@@ -72,13 +72,16 @@ public class ScreenScoper {
       Class<?> moduleClass = withModule.value();
 
       Constructor<?>[] constructors = moduleClass.getDeclaredConstructors();
+      //Constructor<?>[] constructors1 = new Constructor<?>[1];
 
+      //constructors1[0] = constructors[0];
+/*
       if (constructors.length != 1) {
         throw new IllegalArgumentException(
             format("Module %s for screen %s should have exactly one public constructor",
                 moduleClass.getName(), screen));
       }
-
+*/
       Constructor constructor = constructors[0];
 
       Class[] parameters = constructor.getParameterTypes();
